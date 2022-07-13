@@ -1,0 +1,129 @@
+[ {
+  "name" : "com.amazonaws.serverless.proxy.model.AwsProxyRequest",
+  "allPublicMethods" : true,
+  "allDeclaredConstructors" : true
+}, {
+  "name" : "com.amazonaws.serverless.proxy.model.AlbContext",
+  "allPublicMethods" : true,
+  "allDeclaredConstructors" : true
+}, {
+  "name" : "com.amazonaws.serverless.proxy.model.ApiGatewayAuthorizerContext",
+  "allPublicMethods" : true,
+  "allDeclaredConstructors" : true
+}, {
+  "name" : "com.amazonaws.serverless.proxy.model.ApiGatewayRequestIdentity",
+  "allPublicMethods" : true,
+  "allDeclaredConstructors" : true
+}, {
+  "name" : "com.amazonaws.serverless.proxy.model.AwsProxyRequestContext",
+  "allPublicMethods" : true,
+  "allDeclaredConstructors" : true
+}, {
+  "name" : "com.amazonaws.serverless.proxy.model.AwsProxyResponse",
+  "allPublicMethods" : true,
+  "allDeclaredConstructors" : true
+}, {
+  "name" : "com.amazonaws.serverless.proxy.model.CognitoAuthorizerClaims",
+  "allPublicMethods" : true,
+  "allDeclaredConstructors" : true
+}, {
+  "name" : "com.amazonaws.serverless.proxy.model.ContainerConfig",
+  "allPublicMethods" : true,
+  "allDeclaredConstructors" : true
+}, {
+  "name" : "com.amazonaws.serverless.proxy.model.ErrorModel",
+  "allPublicMethods" : true,
+  "allDeclaredConstructors" : true
+}, {
+  "name" : "com.amazonaws.serverless.proxy.model.Headers",
+  "allPublicMethods" : true,
+  "allDeclaredConstructors" : true
+}, {
+  "name" : "com.amazonaws.serverless.proxy.model.MultiValuedTreeMap",
+  "allPublicMethods" : true,
+  "allDeclaredConstructors" : true
+}, {
+  "name" : "io.micronaut.http.client.ServiceHttpClientCondition",
+  "allPublicMethods" : true,
+  "allDeclaredConstructors" : true
+}, {
+  "name" : "com.amazonaws.partitions.model.Partitions",
+  "allPublicMethods" : true,
+  "allDeclaredConstructors" : true
+}, {
+  "name" : "com.amazonaws.partitions.model.Partition",
+  "allPublicMethods" : true,
+  "allDeclaredConstructors" : true
+}, {
+  "name" : "com.amazonaws.partitions.model.Endpoint",
+  "allPublicMethods" : true,
+  "allDeclaredConstructors" : true
+}, {
+  "name" : "com.amazonaws.partitions.model.Region",
+  "allPublicMethods" : true,
+  "allDeclaredConstructors" : true
+}, {
+  "name" : "com.amazonaws.partitions.model.Service",
+  "allPublicMethods" : true,
+  "allDeclaredConstructors" : true
+}, {
+  "name" : "com.amazonaws.partitions.model.CredentialScope",
+  "allPublicMethods" : true,
+  "allDeclaredConstructors" : true
+}, {
+  "name" : "java.util.HashSet",
+  "allPublicMethods" : true,
+  "allDeclaredConstructors" : true
+}, {
+  "name" : "org.apache.commons.logging.impl.LogFactoryImpl",
+  "allPublicMethods" : true,
+  "allDeclaredConstructors" : true
+}, {
+  "name" : "org.apache.commons.logging.impl.Jdk14Logger",
+  "allPublicMethods" : true,
+  "allDeclaredConstructors" : true
+}, {"name" : "com.amazonaws.auth.AbstractAWSSigner","allPublicMethods" : true,"allDeclaredConstructors" : true},
+  {"name" : "com.amazonaws.auth.AnonymousAWSCredentials","allPublicMethods" : true,"allDeclaredConstructors" : true},
+  {"name" : "com.amazonaws.auth.AWS3Signer","allPublicMethods" : true,"allDeclaredConstructors" : true},
+  {"name" : "com.amazonaws.auth.AWS4Signer","allPublicMethods" : true,"allDeclaredConstructors" : true},
+  {"name" : "com.amazonaws.auth.AWS4UnsignedPayloadSigner","allPublicMethods" : true,"allDeclaredConstructors" : true},
+  {"name" : "com.amazonaws.auth.AWSCredentials","allPublicMethods" : true,"allDeclaredConstructors" : true},
+  {"name" : "com.amazonaws.auth.AWSCredentialsProvider","allPublicMethods" : true,"allDeclaredConstructors" : true},
+  {"name" : "com.amazonaws.auth.AWSCredentialsProviderChain","allPublicMethods" : true,"allDeclaredConstructors" : true},
+  {"name" : "com.amazonaws.auth.AWSRefreshableSessionCredentials","allPublicMethods" : true,"allDeclaredConstructors" : true},
+  {"name" : "com.amazonaws.auth.AWSSessionCredentials","allPublicMethods" : true,"allDeclaredConstructors" : true},
+  {"name" : "com.amazonaws.auth.AWSSessionCredentialsProvider","allPublicMethods" : true,"allDeclaredConstructors" : true},
+  {"name" : "com.amazonaws.auth.AWSStaticCredentialsProvider","allPublicMethods" : true,"allDeclaredConstructors" : true},
+  {"name" : "com.amazonaws.auth.BasicAWSCredentials","allPublicMethods" : true,"allDeclaredConstructors" : true},
+  {"name" : "com.amazonaws.auth.BasicSessionCredentials","allPublicMethods" : true,"allDeclaredConstructors" : true},
+  {"name" : "com.amazonaws.auth.CanHandleNullCredentials","allPublicMethods" : true,"allDeclaredConstructors" : true},
+  {"name" : "com.amazonaws.auth.ClasspathPropertiesFileCredentialsProvider","allPublicMethods" : true,"allDeclaredConstructors" : true},
+  {"name" : "com.amazonaws.auth.ContainerCredentialsProvider","allPublicMethods" : true,"allDeclaredConstructors" : true},
+  {"name" : "com.amazonaws.auth.ContainerCredentialsRetryPolicy","allPublicMethods" : true,"allDeclaredConstructors" : true},
+  {"name" : "com.amazonaws.auth.DefaultAWSCredentialsProviderChain","allPublicMethods" : true,"allDeclaredConstructors" : true},
+  {"name" : "com.amazonaws.auth.EC2ContainerCredentialsProviderWrapper","allPublicMethods" : true,"allDeclaredConstructors" : true},
+  {"name" : "com.amazonaws.auth.EndpointPrefixAwareSigner","allPublicMethods" : true,"allDeclaredConstructors" : true},
+  {"name" : "com.amazonaws.auth.EnvironmentVariableCredentialsProvider","allPublicMethods" : true,"allDeclaredConstructors" : true},
+  {"name" : "com.amazonaws.auth.InstanceProfileCredentialsProvider","allPublicMethods" : true,"allDeclaredConstructors" : true},
+  {"name" : "com.amazonaws.auth.NoOpSigner","allPublicMethods" : true,"allDeclaredConstructors" : true},
+  {"name" : "com.amazonaws.auth.Presigner","allPublicMethods" : true,"allDeclaredConstructors" : true},
+  {"name" : "com.amazonaws.auth.ProcessCredentialsProvider","allPublicMethods" : true,"allDeclaredConstructors" : true},
+  {"name" : "com.amazonaws.auth.PropertiesCredentials","allPublicMethods" : true,"allDeclaredConstructors" : true},
+  {"name" : "com.amazonaws.auth.PropertiesFileCredentialsProvider","allPublicMethods" : true,"allDeclaredConstructors" : true},
+  {"name" : "com.amazonaws.auth.QueryStringSigner","allPublicMethods" : true,"allDeclaredConstructors" : true},
+  {"name" : "com.amazonaws.auth.RegionAwareSigner","allPublicMethods" : true,"allDeclaredConstructors" : true},
+  {"name" : "com.amazonaws.auth.RequestSigner","allPublicMethods" : true,"allDeclaredConstructors" : true},
+  {"name" : "com.amazonaws.auth.SdkClock","allPublicMethods" : true,"allDeclaredConstructors" : true},
+  {"name" : "com.amazonaws.auth.ServiceAwareSigner","allPublicMethods" : true,"allDeclaredConstructors" : true},
+  {"name" : "com.amazonaws.auth.SignatureVersion","allPublicMethods" : true,"allDeclaredConstructors" : true},
+  {"name" : "com.amazonaws.auth.Signer","allPublicMethods" : true,"allDeclaredConstructors" : true},
+  {"name" : "com.amazonaws.auth.SignerAsRequestSigner","allPublicMethods" : true,"allDeclaredConstructors" : true},
+  {"name" : "com.amazonaws.auth.SignerFactory","allPublicMethods" : true,"allDeclaredConstructors" : true},
+  {"name" : "com.amazonaws.auth.SignerParams","allPublicMethods" : true,"allDeclaredConstructors" : true},
+  {"name" : "com.amazonaws.auth.SignerTypeAware","allPublicMethods" : true,"allDeclaredConstructors" : true},
+  {"name" : "com.amazonaws.auth.SigningAlgorithm","allPublicMethods" : true,"allDeclaredConstructors" : true},
+  {"name" : "com.amazonaws.auth.StaticSignerProvider","allPublicMethods" : true,"allDeclaredConstructors" : true},
+  {"name" : "com.amazonaws.auth.SystemPropertiesCredentialsProvider","allPublicMethods" : true,"allDeclaredConstructors" : true}]
+
+
+
