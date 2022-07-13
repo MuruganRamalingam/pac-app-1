@@ -46,7 +46,7 @@ Example controller responding with /ping are included in template.
 
 You should replace the `/ping` path entry with the URI the controller endpoint you wish to invoke.
 
-about get post
+about get postaa
 ```txt
 https://www.tabnine.com/code/java/methods/io.micronaut.http.annotation.Controller/%3Cinit%3E
 ```
