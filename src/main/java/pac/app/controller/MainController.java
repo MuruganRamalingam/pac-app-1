@@ -78,18 +78,18 @@ public class MainController {
         LOG.info("Local Test2");
         amazonDynamoDBClient = AmazonDynamoDBClientBuilder.standard()
                 .withCredentials(new DefaultAWSCredentialsProviderChain())
-                .withRegion(Regions.AP_NORTHEAST_1).build();
+                .withRegion(Regions.US-EAST-1).build();
 
         dbMapper = new DynamoDBMapper(amazonDynamoDBClient);
         LOG.info("Local Test3");
-        table = new DynamoDB(amazonDynamoDBClient).getTable("pis_val");
+        table = new DynamoDB(amazonDynamoDBClient).getTable("pac_all");
         LOG.info("Local Test4");
 
-        Item item = table.getItem("h", "88881P111R111",
-                "s", "1");
+        Item item = table.getItem("pk", "000367853124",
+                "sk", "4");
         LOG.info("Local Test5");
         String base_janCode = item.get("jan").toString();
-        String base_point = item.get("po").toString();
+        String base_point = item.get("point").toString();
         LOG.info(base_janCode);
         LOG.info(base_point);
         return "{\"jan\":\"" + base_janCode + "\",\"point\":\"" + base_point + "\"}";
@@ -103,17 +103,17 @@ public class MainController {
         LOG.info("Local Test2");
         amazonDynamoDBClient = AmazonDynamoDBClientBuilder.standard()
                 .withCredentials(new DefaultAWSCredentialsProviderChain())
-                .withRegion(Regions.AP_NORTHEAST_1).build();
+                .withRegion(Regions.US-EAST-1).build();
 
         dbMapper = new DynamoDBMapper(amazonDynamoDBClient);
         LOG.info("Local Test3");
-        table = new DynamoDB(amazonDynamoDBClient).getTable("pis_val");
+        table = new DynamoDB(amazonDynamoDBClient).getTable("pac_all");
         LOG.info("Local Test4");
-        Item item = table.getItem("h", "88881P111R111",
-                "s", "1");
+        Item item = table.getItem("pk", "000367853124",
+                "sk", "4");
         LOG.info("Local Test5");
         String base_janCode = item.get("jan").toString();
-        String base_point = item.get("po").toString();
+        String base_point = item.get("point").toString();
         LOG.info(base_point);
         return "{\"jan\":\"" + base_janCode + "\",\"point\":\"" + base_point + "\"}";
 
@@ -129,7 +129,7 @@ public class MainController {
     public String ts() throws IOException {
         amazonDynamoDBClient = AmazonDynamoDBClientBuilder.standard()
                 .withCredentials(new DefaultAWSCredentialsProviderChain())
-                .withRegion(Regions.AP_NORTHEAST_1).build();
+                .withRegion(Regions.US-EAST-1).build();
 
         LOG.info("Local Test3");
 
@@ -139,7 +139,7 @@ public class MainController {
                 .withAttributeValueList(new AttributeValue().withS("123456789012"));
 
         scanFilter.put("jan", condition);
-        ScanRequest scanRequest = new ScanRequest("pis_val").withScanFilter(scanFilter);
+        ScanRequest scanRequest = new ScanRequest("pac_all").withScanFilter(scanFilter);
         ScanResult scanResult = amazonDynamoDBClient.scan(scanRequest);
         List<java.util.Map<String, AttributeValue>> aa = scanResult.getItems();
         LOG.info(aa.size());
