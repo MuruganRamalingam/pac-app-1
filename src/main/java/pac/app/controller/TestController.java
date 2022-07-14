@@ -36,6 +36,6 @@ public class TestController {
     }
     @Get("/find")
     public String  findStringWord() {
-        return "hello soundar";
+        return "hellosoundar";
     }
 }
