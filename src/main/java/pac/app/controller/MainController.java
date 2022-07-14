@@ -142,15 +142,14 @@ public class MainController {
             java.util.Map<String, AttributeValue> bb = aa.get(i);
 
             Iterator<String> iterator = bb.keySet().iterator();
-
             while (iterator.hasNext()) {
                 String key = iterator.next();
                 AttributeValue cc = bb.get(key);
-
                 LOG.info(key);
                 LOG.info(cc.toString());
             }
         }
-        return cc.toString();
+        String s=cc.toString();
+        return s;
     }
 }
