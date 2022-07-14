@@ -78,7 +78,7 @@ public class MainController {
         LOG.info("Local Test2");
         amazonDynamoDBClient = AmazonDynamoDBClientBuilder.standard()
                 .withCredentials(new DefaultAWSCredentialsProviderChain())
-                .withRegion(Regions.US-EAST-1).build();
+                .withRegion(Regions.US_EAST_1).build();
 
         dbMapper = new DynamoDBMapper(amazonDynamoDBClient);
         LOG.info("Local Test3");
@@ -103,7 +103,7 @@ public class MainController {
         LOG.info("Local Test2");
         amazonDynamoDBClient = AmazonDynamoDBClientBuilder.standard()
                 .withCredentials(new DefaultAWSCredentialsProviderChain())
-                .withRegion(Regions.US-EAST-1).build();
+                .withRegion(Regions.US_EAST_1).build();
 
         dbMapper = new DynamoDBMapper(amazonDynamoDBClient);
         LOG.info("Local Test3");
