@@ -35,7 +35,7 @@ public class TestController {
         return resp;
     }
     @Get("/find")
-    public String  findStringWord() {
-        return "Hello World Devasena!";
+    public String findString(){
+        return "Hello world ushaKkiran";
     }
 }
