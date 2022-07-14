@@ -151,7 +151,6 @@ public class MainController {
                 LOG.info(cc.toString());
             }
         }
-
-        return "ok";
+        return cc;
     }
 }
