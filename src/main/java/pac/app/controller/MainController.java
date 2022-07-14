@@ -118,7 +118,27 @@ public class MainController {
     public String findPrimesBelow(String pet) {
         return pet;
     }
-
+    @Get("/go/{jan}")
+    public String findAllItems(String jan) {
+        amazonDynamoDBClient = AmazonDynamoDBClientBuilder.standard()
+                .withCredentials(new DefaultAWSCredentialsProviderChain())
+                .withRegion(Regions.US_EAST_1).build();
+                dbMapper = new DynamoDBMapper(amazonDynamoDBClient);
+                table = new DynamoDB(amazonDynamoDBClient).getTable("pac_all");
+                Item item = table.getItem("pk","001");
+                if(item.hasNext())
+                {
+                    String base_rank = item.get("rank").toString();
+                    String base_type = item.get("type").toString();
+                    String base_jan = item.get("jan").toString();
+                    String base_promotionDesc = item.get("PromotionDesc").toString();
+  
+                }
+                
+                LOG.info(base_type);
+                return "{\"jan\":\"" + base_rank + "\",\"point\":\"" + base_type + "\"" +base_jan+"/"+base_promotionDesc+"\"}";
+        
+    }
     @Get("/test")
     public String ts() throws IOException {
         amazonDynamoDBClient = AmazonDynamoDBClientBuilder.standard()
