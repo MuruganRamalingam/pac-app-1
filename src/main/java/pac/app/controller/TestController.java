@@ -36,10 +36,6 @@ public class TestController {
     }
     @Get("/find")
     public String  findStringWord() {
-<<<<<<< HEAD
         return "Hello World pandiyanramalingam!";
-=======
-        return "hellosoundar";
->>>>>>> 1876714a74a706022a0c0446b2595d569c1eb5bb
     }
 }
