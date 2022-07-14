@@ -85,8 +85,7 @@ public class MainController {
         table = new DynamoDB(amazonDynamoDBClient).getTable("pac_all");
         LOG.info("Local Test4");
 
-        Item item = table.getItem("pk", "000367853124",
-                "sk", "4");
+        Item item = table.getItem("pk", "000367853124","sk", "4");
         LOG.info("Local Test5");
         String base_janCode = item.get("jan").toString();
         String base_point = item.get("point").toString();
@@ -103,7 +102,7 @@ public class MainController {
         LOG.info("Local Test2");
         amazonDynamoDBClient = AmazonDynamoDBClientBuilder.standard()
                 .withCredentials(new DefaultAWSCredentialsProviderChain())
-                .withRegion(Regions.us-east-1).build();
+                .withRegion(Regions.US_EAST_1).build();
 
         dbMapper = new DynamoDBMapper(amazonDynamoDBClient);
         LOG.info("Local Test3");
@@ -129,7 +128,7 @@ public class MainController {
     public String ts() throws IOException {
         amazonDynamoDBClient = AmazonDynamoDBClientBuilder.standard()
                 .withCredentials(new DefaultAWSCredentialsProviderChain())
-                .withRegion(Regions.US-EAST-1).build();
+                .withRegion(Regions.US_EAST_1).build();
 
         LOG.info("Local Test3");
 
