@@ -149,7 +149,6 @@ public class MainController {
                 LOG.info(cc.toString());
             }
         }
-        String s=cc.toString();
-        return s;
+        return key;
     }
 }
