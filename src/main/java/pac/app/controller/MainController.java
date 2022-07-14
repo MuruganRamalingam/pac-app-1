@@ -88,7 +88,7 @@ public class MainController {
         Item item = table.getItem("pk", "000367853124","sk", "4");
         LOG.info("Local Test5");
         String base_janCode = item.get("jan").toString();
-        String base_point = item.get("point").toString();
+        String base_point = item.get("PromotionDesc").toString();
         LOG.info(base_janCode);
         LOG.info(base_point);
         return "{\"jan\":\"" + base_janCode + "\",\"point\":\"" + base_point + "\"}";
@@ -112,7 +112,7 @@ public class MainController {
                 "sk", "4");
         LOG.info("Local Test5");
         String base_janCode = item.get("jan").toString();
-        String base_point = item.get("point").toString();
+        String base_point = item.get("PromotionDesc").toString();
         LOG.info(base_point);
         return "{\"jan\":\"" + base_janCode + "\",\"point\":\"" + base_point + "\"}";
 
