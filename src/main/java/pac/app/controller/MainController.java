@@ -78,43 +78,23 @@ public class MainController {
         LOG.info("Local Test2");
         amazonDynamoDBClient = AmazonDynamoDBClientBuilder.standard()
                 .withCredentials(new DefaultAWSCredentialsProviderChain())
-                .withRegion(Regions.US_EAST_1).build();
+                .withRegion(Regions.AP_NORTHEAST_1).build();
 
         dbMapper = new DynamoDBMapper(amazonDynamoDBClient);
         LOG.info("Local Test3");
-        table = new DynamoDB(amazonDynamoDBClient).getTable("pac_all");
+        table = new DynamoDB(amazonDynamoDBClient).getTable("pis_val");
         LOG.info("Local Test4");
 
-        Item item = table.getItem("pk", "000367853124","sk", "4");
+        Item item = table.getItem("h", "88881P111R111",
+                "s", "1");
         LOG.info("Local Test5");
         String base_janCode = item.get("jan").toString();
-        String base_point = item.get("PromotionDesc").toString();
+        String base_point = item.get("po").toString();
         LOG.info(base_janCode);
         LOG.info(base_point);
         return "{\"jan\":\"" + base_janCode + "\",\"point\":\"" + base_point + "\"}";
     }
-    @Get("/path")
-    @Produces(MediaType.APPLICATION_JSON)
-    public String hello(@Body String body){
-    return body;
-    }
-    @Get("/txt")
-    @Produces(MediaType.TEXT_PLAIN)
-    public String helloWorld(@Body String body)
-    {
-        return body;
-    }
-    @Post("/usha")
-    @Produces(MediaType.APPLICATION_JSON)
-    public String saveEvent(@Body String body) {
-    return body;
-    }
-    @Post("/tx")
-    @Produces(MediaType.TEXT_PLAIN)
-     public String event(@Body String body) {
-     return body.toString();
 
-    }
 
     @Get
     public String test() throws IOException {
@@ -123,17 +103,17 @@ public class MainController {
         LOG.info("Local Test2");
         amazonDynamoDBClient = AmazonDynamoDBClientBuilder.standard()
                 .withCredentials(new DefaultAWSCredentialsProviderChain())
-                .withRegion(Regions.US_EAST_1).build();
+                .withRegion(Regions.AP_NORTHEAST_1).build();
 
         dbMapper = new DynamoDBMapper(amazonDynamoDBClient);
         LOG.info("Local Test3");
-        table = new DynamoDB(amazonDynamoDBClient).getTable("pac_all");
+        table = new DynamoDB(amazonDynamoDBClient).getTable("pis_val");
         LOG.info("Local Test4");
-        Item item = table.getItem("pk", "000367853124",
-                "sk", "4");
+        Item item = table.getItem("h", "88881P111R111",
+                "s", "1");
         LOG.info("Local Test5");
         String base_janCode = item.get("jan").toString();
-        String base_point = item.get("PromotionDesc").toString();
+        String base_point = item.get("po").toString();
         LOG.info(base_point);
         return "{\"jan\":\"" + base_janCode + "\",\"point\":\"" + base_point + "\"}";
 
@@ -149,7 +129,7 @@ public class MainController {
     public String ts() throws IOException {
         amazonDynamoDBClient = AmazonDynamoDBClientBuilder.standard()
                 .withCredentials(new DefaultAWSCredentialsProviderChain())
-                .withRegion(Regions.US_EAST_1).build();
+                .withRegion(Regions.AP_NORTHEAST_1).build();
 
         LOG.info("Local Test3");
 
@@ -159,7 +139,7 @@ public class MainController {
                 .withAttributeValueList(new AttributeValue().withS("123456789012"));
 
         scanFilter.put("jan", condition);
-        ScanRequest scanRequest = new ScanRequest("pac_all").withScanFilter(scanFilter);
+        ScanRequest scanRequest = new ScanRequest("pis_val").withScanFilter(scanFilter);
         ScanResult scanResult = amazonDynamoDBClient.scan(scanRequest);
         List<java.util.Map<String, AttributeValue>> aa = scanResult.getItems();
         LOG.info(aa.size());
