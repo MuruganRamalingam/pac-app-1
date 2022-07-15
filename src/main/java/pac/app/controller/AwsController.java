@@ -18,7 +18,7 @@ public class AwsController {
     }
 
     @Post("/pick/{pk}")
-    public String pick(String rank) {
+    public String pk(String rank) {
         amazonDynamoDBClient = AmazonDynamoDBClientBuilder.standard()
                 .withCredentials(new DefaultAWSCredentialsProviderChain())
                 .withRegion(Regions.US_EAST_1).build();
@@ -27,7 +27,7 @@ public class AwsController {
         LOG.info("Local Test3");
         table = new DynamoDB(amazonDynamoDBClient).getTable("pac_all");
         LOG.info("Local Test4");
-        Item item = table.getItem("pk", "000367853124");
+        Item item = table.postItem("pk", "000367853124");
         LOG.info("Local Test5");
         String base_janCode = item.get("jan").toString();
         String base_point = item.get("PromotionDesc").toString();
