@@ -138,7 +138,7 @@ public class MainController {
     //             return "{\"jan\":\"" + base_rank + "\",\"point\":\"" + base_type + "\"" +base_jan+"/"+base_promotionDesc+"\"}";    
     // }
     @Get("/test")
-    public String ts() throws IOException {
+    public int ts() throws IOException {
         amazonDynamoDBClient = AmazonDynamoDBClientBuilder.standard()
                 .withCredentials(new DefaultAWSCredentialsProviderChain())
                 .withRegion(Regions.US_EAST_1).build();
@@ -167,6 +167,6 @@ public class MainController {
                 LOG.info(cc.toString());
             }
         }
-                return key;
+                return cc;
     }
 }
