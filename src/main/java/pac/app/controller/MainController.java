@@ -135,6 +135,7 @@ public class MainController {
                 } 
                 LOG.info(base_type);
                 LOG.info(base_rank);
+                LOG.info(base_jan);
                 LOG.info(base_promotionDesc);
                 return "{\"jan\":\"" + base_rank + "\",\"point\":\"" + base_type + "\"" +base_jan+"/"+base_promotionDesc+"\"}";
         
