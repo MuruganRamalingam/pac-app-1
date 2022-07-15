@@ -155,14 +155,14 @@ public class MainController {
         ScanResult scanResult = amazonDynamoDBClient.scan(scanRequest);
         List<java.util.Map<String, AttributeValue>> aa = scanResult.getItems();
         LOG.info(aa.size());
-
+        AttributeValue cc= new AttributeValue();
         for (int i = 0; i < aa.size(); i++) {
             java.util.Map<String, AttributeValue> bb = aa.get(i);
 
             Iterator<String> iterator = bb.keySet().iterator();
             while (iterator.hasNext()) {
                 String key = iterator.next();
-                AttributeValue cc = bb.get(key);
+                cc = bb.get(key);
                 LOG.info(key);
                 LOG.info(cc.toString());
             }
