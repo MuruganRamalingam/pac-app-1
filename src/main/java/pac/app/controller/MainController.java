@@ -137,6 +137,15 @@ public class MainController {
     //             LOG.info(base_promotionDesc);
     //             return "{\"jan\":\"" + base_rank + "\",\"point\":\"" + base_type + "\"" +base_jan+"/"+base_promotionDesc+"\"}";    
     // }
+
+
+    @Post("/js")
+    @Produces(MediaType.APPLICATION_JSON)
+    public String saveEvent(@Body String body) {
+
+        return body;
+    }
+
     @Get("/test")
     public String ts() throws IOException {
         amazonDynamoDBClient = AmazonDynamoDBClientBuilder.standard()
@@ -156,17 +165,30 @@ public class MainController {
         List<java.util.Map<String, AttributeValue>> aa = scanResult.getItems();
         LOG.info(aa.size());
         AttributeValue cc= new AttributeValue();
+
+        String base_point="";
+        String base_promotionDesc="";
         for (int i = 0; i < aa.size(); i++) {
             java.util.Map<String, AttributeValue> bb = aa.get(i);
             Iterator<String> iterator = bb.keySet().iterator();
             while (iterator.hasNext()) {
                 String key = iterator.next();
                 cc = bb.get(key);
+                if(key.equals("PromotionDesc"))
+                {
+                    base_promotionDesc = cc.toString().substring(4);
+                    base_promotionDesc =base_promotionDesc.substring(0, base_promotionDesc.length() - 2);
+                }
+                if(key.equlas("point"))
+                {
+                    base_point = cc.toString().substring(4);
+                    base_point =base_point.substring(0, base_point.length() - 2);
+                }
                 LOG.info(key);
                 LOG.info(cc.toString());
             }
         }
-                String s =String.valueOf(cc);
-                return s;
+        String s =String.valueOf(cc);
+        return  "{\"point\":\"" + base_point + "\",\"PromotionDesc\":\"" + base_promotionDesc + "\"}";
     }
 }
