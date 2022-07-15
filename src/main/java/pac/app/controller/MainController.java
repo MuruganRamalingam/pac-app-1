@@ -93,11 +93,21 @@ public class MainController {
         LOG.info(base_point);
         return "{\"jan\":\"" + base_janCode + "\",\"point\":\"" + base_point + "\"}";
     }
+    @Get("/path")
+    @Produces(MediaType.APPLICATION_JSON)
+    public String get(@Body String body){
+    return body;
+    }
+    @Get("/txt")
+    @Produces(MediaType.TEXT_PLAIN)
+    public String get(@Body String body)
+    {
+        return body;
+    }
     @Post("/usha")
     @Produces(MediaType.APPLICATION_JSON)
     public String saveEvent(@Body String body) {
     return body;
-
     }
     @Post("/tx")
     @Produces(MediaType.TEXT_PLAIN)
