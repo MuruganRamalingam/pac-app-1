@@ -166,6 +166,6 @@ public class MainController {
                 LOG.info(cc.toString());
             }
         }
-                return cc.toString();
+                return cc;
     }
 }
