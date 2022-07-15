@@ -95,12 +95,12 @@ public class MainController {
     }
     @Get("/path")
     @Produces(MediaType.APPLICATION_JSON)
-    public String get(@Body String body){
+    public String hello(@Body String body){
     return body;
     }
     @Get("/txt")
     @Produces(MediaType.TEXT_PLAIN)
-    public String get(@Body String body)
+    public String helloWorld(@Body String body)
     {
         return body;
     }
