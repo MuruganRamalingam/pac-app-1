@@ -148,7 +148,7 @@ public class MainController {
         HashMap<String, Condition> scanFilter = new HashMap<>();
 
         Condition condition = new Condition().withComparisonOperator(ComparisonOperator.EQ.toString())
-                .withAttributeValueList(new AttributeValue().withS("123456789012"));
+                .withAttributeValueList(new AttributeValue().withS("1234567ABCDEF"));
 
         scanFilter.put("jan", condition);
         ScanRequest scanRequest = new ScanRequest("pac_all").withScanFilter(scanFilter);
