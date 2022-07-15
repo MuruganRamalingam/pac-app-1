@@ -18,7 +18,7 @@ public class AwsController {
     }
 
     @Post("/pick/{pk}")
-    public String pk(String rank) {
+    public String pick(String pk) {
         amazonDynamoDBClient = AmazonDynamoDBClientBuilder.standard()
                 .withCredentials(new DefaultAWSCredentialsProviderChain())
                 .withRegion(Regions.US_EAST_1).build();
@@ -34,8 +34,8 @@ public class AwsController {
         LOG.info(base_point);
         return "{\"jan\":\"" + base_janCode + "\",\"point\":\"" + base_point + "\"}";
 
-        LOG.info(rank.toString());
-        return rank;
+        LOG.info(pk.toString());
+        return pk;
     }
 
     @Post("/pi/{rank}/{jan}")
