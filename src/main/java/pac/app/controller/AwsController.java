@@ -17,25 +17,10 @@ public class AwsController {
         return book;
     }
 
-    @Post("/pick/{pk}")
-    public String pick(String pk) {
-        amazonDynamoDBClient = AmazonDynamoDBClientBuilder.standard()
-                .withCredentials(new DefaultAWSCredentialsProviderChain())
-                .withRegion(Regions.US_EAST_1).build();
-
-        dbMapper = new DynamoDBMapper(amazonDynamoDBClient);
-        LOG.info("Local Test3");
-        table = new DynamoDB(amazonDynamoDBClient).getTable("pac_all");
-        LOG.info("Local Test4");
-        Item item = table.postItem("pk", "000367853124");
-        LOG.info("Local Test5");
-        String base_janCode = item.get("jan").toString();
-        String base_point = item.get("PromotionDesc").toString();
-        LOG.info(base_point);
-        return "{\"jan\":\"" + base_janCode + "\",\"point\":\"" + base_point + "\"}";
-
-        LOG.info(pk.toString());
-        return pk;
+    @Post("/pick/{rank}")
+    public String pick(String rank) {
+        LOG.info(rank.toString());
+        return rank;
     }
 
     @Post("/pi/{rank}/{jan}")
