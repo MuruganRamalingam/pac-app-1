@@ -93,7 +93,18 @@ public class MainController {
         LOG.info(base_point);
         return "{\"jan\":\"" + base_janCode + "\",\"point\":\"" + base_point + "\"}";
     }
+    @Post("/usha")
+    @Produces(MediaType.APPLICATION_JSON)
+    public String saveEvent(@Body String body) {
+    return body;
 
+    }
+    @Post("/tx")
+    @Produces(MediaType.TEXT_PLAIN)
+     public String event(@Body String body) {
+     return body.toString();
+
+    }
 
     @Get
     public String test() throws IOException {
