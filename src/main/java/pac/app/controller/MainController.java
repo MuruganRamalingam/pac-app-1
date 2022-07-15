@@ -167,7 +167,7 @@ public class MainController {
                 LOG.info(cc.toString());
             }
         }
-                int i= Integer.parseInt(cc.toString());
-                return i;
+               // int i= Integer.parseInt(cc.toString());
+                return cc;
     }
 }
