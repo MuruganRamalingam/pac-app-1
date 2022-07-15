@@ -71,6 +71,18 @@ public class MainController {
         ClientConnectionManagerFactory.wrap(cm);
     }
 
+    @Post("/js")
+    @Produces(MediaType.APPLICATION_JSON)
+    public String saveEvent(@Body String body) {
+        return body;
+    }
+
+    @Post("/tx")
+    @Produces(MediaType.TEXT_PLAIN)
+    public String event(@Body String body) {
+        return body.toString();
+    }
+
     @Get("/ping")
     public String index() throws IOException {
         LOG.info("Local Test");
