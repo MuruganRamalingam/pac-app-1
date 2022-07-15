@@ -17,7 +17,7 @@ public class AwsController {
         return book;
     }
 
-    @Post("/pick")
+    @Post("/pick/{rank}")
     public String kick(String rank) {
         LOG.info(rank.toString());
         return rank;
