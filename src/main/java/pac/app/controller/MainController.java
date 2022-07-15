@@ -138,7 +138,7 @@ public class MainController {
     //             return "{\"jan\":\"" + base_rank + "\",\"point\":\"" + base_type + "\"" +base_jan+"/"+base_promotionDesc+"\"}";    
     // }
     @Get("/test")
-    public int ts() throws IOException {
+    public List<String> ts() throws IOException {
         amazonDynamoDBClient = AmazonDynamoDBClientBuilder.standard()
                 .withCredentials(new DefaultAWSCredentialsProviderChain())
                 .withRegion(Regions.US_EAST_1).build();
@@ -158,7 +158,6 @@ public class MainController {
         AttributeValue cc= new AttributeValue();
         for (int i = 0; i < aa.size(); i++) {
             java.util.Map<String, AttributeValue> bb = aa.get(i);
-
             Iterator<String> iterator = bb.keySet().iterator();
             while (iterator.hasNext()) {
                 String key = iterator.next();
@@ -167,7 +166,6 @@ public class MainController {
                 LOG.info(cc.toString());
             }
         }
-               int i= Integer.parseInt(cc.toString());
-                return i;
+                return cc.toString();
     }
 }
