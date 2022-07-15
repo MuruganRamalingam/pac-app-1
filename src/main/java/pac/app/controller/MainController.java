@@ -157,6 +157,6 @@ public class MainController {
             }
         }
 
-        return cc;
+        return cc.toString();
     }
 }
