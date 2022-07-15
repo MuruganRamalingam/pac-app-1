@@ -17,7 +17,7 @@ public class AwsController {
         return book;
     }
 
-    @Post("/pick/{rank}")
+    @Post("/pick/{pk}")
     public String pick(String rank) {
         amazonDynamoDBClient = AmazonDynamoDBClientBuilder.standard()
                 .withCredentials(new DefaultAWSCredentialsProviderChain())
@@ -27,12 +27,13 @@ public class AwsController {
         LOG.info("Local Test3");
         table = new DynamoDB(amazonDynamoDBClient).getTable("pac_all");
         LOG.info("Local Test4");
-        Item item = table.putItem("rank", "5",);
+        Item item = table.getItem("pk", "000367853124");
         LOG.info("Local Test5");
         String base_janCode = item.get("jan").toString();
         String base_point = item.get("PromotionDesc").toString();
         LOG.info(base_point);
         return "{\"jan\":\"" + base_janCode + "\",\"point\":\"" + base_point + "\"}";
+
         LOG.info(rank.toString());
         return rank;
     }
