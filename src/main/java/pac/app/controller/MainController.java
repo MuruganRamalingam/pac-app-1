@@ -112,8 +112,6 @@ public class MainController {
         return "{\"jan\":\"" + base_rank + "\",\"point\":\"" + base_type + "\"}";
 
     }
-
-
     @Get("/go/{pet}")
     public String findPrimesBelow(String pet) {
         return pet;
@@ -137,8 +135,7 @@ public class MainController {
     //             LOG.info(base_rank);
     //             LOG.info(base_jan);
     //             LOG.info(base_promotionDesc);
-    //             return "{\"jan\":\"" + base_rank + "\",\"point\":\"" + base_type + "\"" +base_jan+"/"+base_promotionDesc+"\"}";
-        
+    //             return "{\"jan\":\"" + base_rank + "\",\"point\":\"" + base_type + "\"" +base_jan+"/"+base_promotionDesc+"\"}";    
     // }
     @Get("/test")
     public String ts() throws IOException {
