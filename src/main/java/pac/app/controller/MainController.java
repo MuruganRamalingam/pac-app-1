@@ -150,6 +150,7 @@ public class MainController {
 
         String base_point="";
         String base_promotionDesc="";
+        String base_sk="";
         for (int i = 0; i < aa.size(); i++) {
             java.util.Map<String, AttributeValue> bb = aa.get(i);
             Iterator<String> iterator = bb.keySet().iterator();
@@ -166,12 +167,17 @@ public class MainController {
                     base_point = cc.toString().substring(4);
                     base_point =base_point.substring(0, base_point.length() - 2);
                 }
+                if(key.equals("sk"))
+                {
+                    base_sk=cc.toSring();
+                }
                 LOG.info(key);
                 LOG.info(cc.toString());
+                LOG.info(base_sk);
             }
         }
         String s =String.valueOf(cc);
-        return  "{\"point\":\"" + base_point + "\",\"PromotionDesc\":\"" + base_promotionDesc + "\"}";
+        return  "{\"point\":\"" + base_point + "\",\"PromotionDesc\":\"" + base_promotionDesc+ "\"}";
 
     }
 
@@ -217,6 +223,7 @@ public class MainController {
                 LOG.info(cc.toString());
             }
         }
+        return "Test";
         String s =String.valueOf(cc);
         return  "{\"point\":\"" + base_point + "\",\"PromotionDesc\":\"" + base_promotionDesc + "\"}";
     }
