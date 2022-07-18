@@ -223,7 +223,7 @@ public class MainController {
                 LOG.info(cc.toString());
             }
         }
-        return "Test";
+        //return "Test";
         String s =String.valueOf(cc);
         return  "{\"point\":\"" + base_point + "\",\"PromotionDesc\":\"" + base_promotionDesc + "\"}";
     }
