@@ -192,7 +192,7 @@ public class MainController {
         HashMap<String, Condition> scanFilter = new HashMap<>();
 
         Condition condition = new Condition().withComparisonOperator(ComparisonOperator.EQ.toString())
-                .withAttributeValueList(new AttributeValue().withS("1234567ABCDEF"));
+                .withAttributeValueList(new AttributeValue().withS("1234567890AT"));
 
         scanFilter.put("jan", condition);
         ScanRequest scanRequest = new ScanRequest("pac_all").withScanFilter(scanFilter);
@@ -203,6 +203,7 @@ public class MainController {
 
         String base_point="";
         String base_promotionDesc="";
+        String base_rank="";
         for (int i = 0; i < aa.size(); i++) {
             java.util.Map<String, AttributeValue> bb = aa.get(i);
             Iterator<String> iterator = bb.keySet().iterator();
@@ -219,12 +220,17 @@ public class MainController {
                     base_point = cc.toString().substring(4);
                     base_point =base_point.substring(0, base_point.length() - 2);
                 }
+                if(key.equals("rank"))
+                {
+                base_rank=cc.toString();
+                }
                 LOG.info(key);
                 LOG.info(cc.toString());
+                Log.info(base_rank);
             }
         }
         //return "Test";
         String s =String.valueOf(cc);
-        return  "{\"point\":\"" + base_point + "\",\"PromotionDesc\":\"" + base_promotionDesc + "\"}";
+        return  "{\"point\":\"" + base_point + "\",\"PromotionDesc\":\"" + base_promotionDesc + "\",\"rank\":\""+base_rank}";
     }
 }
