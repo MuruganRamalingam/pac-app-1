@@ -169,7 +169,7 @@ public class MainController {
                 }
                 if(key.equals("sk"))
                 {
-                    base_sk=cc.toSring();
+                    base_sk=cc.toString();
                 }
                 LOG.info(key);
                 LOG.info(cc.toString());
