@@ -253,7 +253,6 @@ public class MainController {
                 }
             }
         }
-        //return "Sucessfully";
         return "{\"point\":\"" + base_point + "\",\"PromotionDesc\":\"" + base_promotionDesc + "\",\"rank\":\"" + base_rank + "\"}";
     }
 }
