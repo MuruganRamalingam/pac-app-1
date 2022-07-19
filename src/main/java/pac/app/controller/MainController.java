@@ -222,7 +222,7 @@ public class MainController {
                 }
                 LOG.info(key);
                 LOG.info(cc.toString());
-                Log.info(base_rank);
+                //Log.info(base_rank);
             }
         }
         String s = String.valueOf(cc);
@@ -235,7 +235,7 @@ public class MainController {
                 .withCredentials(new DefaultAWSCredentialsProviderChain())
                 .withRegion(Regions.US_EAST_1).build();
         LOG.info("Local Test7");
-        ScanRequest scanRequest = new ScanRequest().withtableName("pac_all");
+        ScanRequest scanRequest = new ScanRequest().withTableName("pac_all");
         ScanResult scanResult = amazonDynamoDBClient.scan(scanRequest);
         List<java.util.Map<String, AttributeValue>> aa = scanResult.getItems();
         LOG.info(aa.size());
