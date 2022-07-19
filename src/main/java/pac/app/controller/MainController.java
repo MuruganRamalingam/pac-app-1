@@ -230,18 +230,48 @@ public class MainController {
     }
 
     @Get("/pe002")
-    public String pe() throws IOException {
+    public String getEvent(@Body String body) {
+        LOG.info("Local Test7");
+        LOG.info(body);
+        body = "1234567ABCDEF";
+        String[] s1 = body.split(":");
+        String jan = Arrays.toString(s1[0]);
         amazonDynamoDBClient = AmazonDynamoDBClientBuilder.standard()
                 .withCredentials(new DefaultAWSCredentialsProviderChain())
                 .withRegion(Regions.US_EAST_1).build();
-        LOG.info("Local Test7");
         ScanRequest scanRequest = new ScanRequest().withTableName("pac_all");
         ScanResult scanResult = amazonDynamoDBClient.scan(scanRequest);
-       // List<java.util.Map<String, AttributeValue>> aa = scanResult.getItems();
-        for(Map<String, AttributeValue> item:scanResult.getItems())
-        {
-            System.out.println(item);
+        HashMap<String, Condition> scanFilter = new HashMap<>();
+        Condition condition = new Condition().withComparisonOperator(ComparisonOperator.EQ.toString())
+                .withAttributeValueList(new AttributeValue().withS(jan));
+        scanFilter.put("jan", condition);
+        ScanRequest scanRequest = new ScanRequest("pac_all").withScanFilter(scanFilter);
+        ScanResult scanResult = amazonDynamoDBClient.scan(scanRequest);
+        List<java.util.Map<String, AttributeValue>> aa = scanResult.getItems();
+        LOG.info(aa.size());
+        AttributeValue cc = new AttributeValue();
+        String base_masterStoreCode = "";
+        String base_maStoreCode= "";
+        String base_promotionCode = "";
+        String base_rewardCode="";
+        for (int i = 0; i < aa.size(); i++) {
+            java.util.Map<String, AttributeValue> bb = aa.get(i);
+            Iterator<String> iterator = bb.keySet().iterator();
+            while (iterator.hasNext()) {
+                String key = iterator.next();
+                cc = bb.get(key);
+                if (key.equals("jan")) {
+                    base_masterStoreCode = cc.toString().substring(0,3);
+                    base_maStoreCode = cc.toString().subString(4);
+                    base_promotionCode = cc.toString.SubString(5,9);
+                    base_rewardCode = cc.toString.SubString(10,12);
+                }
+                LOG.info(key);
+                LOG.info(cc.toString());
+                LOG.info(base_masterStoreCode);
+            }
         }
-        return "Got Successfully";
+        return "{\"MasterStroreCode\":\"" + base_masterStoreCode + "\",\"MaStoreCode\":\"" + base_maStoreCode + "\",\"PromotionCode\":\"" + base_promotionCode + "\",\"RewardCode\":\""+base_rewardCode+"\"}";
+
     }
 }
