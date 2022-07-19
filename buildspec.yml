@@ -4,25 +4,30 @@ phases:
     commands:
       - java -version
       - gradle -v
+      - ls /home/test/pac-app/
       - mkdir -p /home/application/
       - rm -rf /home/application/*
       - cp -rf * /home/application/
       - chmod 777 -R /home/application/*
+
+  build:
+    commands:
       - cd /home/application/
       - gradle build --no-daemon
       - ./build-native-image.sh
       - chmod 755 bootstrap
       - chmod 755 server
       - zip -j function.zip bootstrap libsunec.so cacerts server
+      - mkdir -p res
+      - ls -lrt res/
+      - mv function.zip res/
       - cd
       - pwd
       - ls -lrt
-  build:
-    commands:
       - echo "test start"
-  post_build:
-    commands:
-      - echo "Nothing to do"
+      - aws cloudformation package --template-file template.yaml --output-template-file packaged-template.yaml --s3-bucket common-use-for-andre-and-all
 artifacts:
   files:
-      - './result.txt'
+    - template.yaml
+    - packaged-template.yaml
+discard-paths: yes
