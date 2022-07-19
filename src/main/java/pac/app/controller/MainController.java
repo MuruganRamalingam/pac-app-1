@@ -232,4 +232,32 @@ public class MainController {
         String s =String.valueOf(cc);
         return  "{\"point\":\"" + base_point + "\",\"PromotionDesc\":\"" + base_promotionDesc + "\",\"rank\":\""+base_rank}";
     }
+
+    @Get("/pe002")
+    public String pe() throws IOException {
+        amazonDynamoDBClient = AmazonDynamoDBClientBuilder.standard()
+                .withCredentials(new DefaultAWSCredentialsProviderChain())
+                .withRegion(Regions.US_EAST_1).build();
+        LOG.info("Local Test7");
+        ScanRequest scanRequest = new ScanRequest().withtableName("pac_all");
+        ScanResult scanResult = amazonDynamoDBClient.scan(scanRequest);
+        List<java.util.Map<String, AttributeValue>> aa = scanResult.getItems();
+        LOG.info(aa.size());
+        AttributeValue cc= new AttributeValue();
+        String base_point="";
+        String base_promotionDesc="";
+        for(int j=0;j<aa.size();j++) {
+            java.util.Map<String, AttributeValue> bb = aa.get(j);
+            Iterator<String> iterator = bb.keySet().iterator();
+            while(iterator.hasNext())
+            {
+                String key = iterator.next();
+                if(key.contains("point")&&key.contains("PromotionDesc"))
+                {
+                    System.out.println("Point and PromotionDesc from the DynamoDB table:"+base_point+"&&"+base_promotionDesc);
+                }
+            }
+    }
+        return "Sucessfully";
+
 }
