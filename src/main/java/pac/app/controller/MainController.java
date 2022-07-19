@@ -228,7 +228,6 @@ public class MainController {
         String s = String.valueOf(cc);
         return "{\"point\":\"" + base_point + "\",\"PromotionDesc\":\"" + base_promotionDesc + "\",\"rank\":\"" + base_rank + "\"}";
     }
-
     @Get("/pe002")
     public String getEvent(@Body String body) {
         LOG.info("Local Test7");
@@ -262,9 +261,9 @@ public class MainController {
                 cc = bb.get(key);
                 if (key.equals("jan")) {
                     base_masterStoreCode = cc.toString().substring(0,3);
-                    base_maStoreCode = cc.toString().subString(4);
-                    base_promotionCode = cc.toString.SubString(5,9);
-                    base_rewardCode = cc.toString.SubString(10,12);
+                    base_maStoreCode = cc.toString().substring(4);
+                    base_promotionCode = cc.toString.substring(5,9);
+                    base_rewardCode = cc.toString.substring(10,12);
                 }
                 LOG.info(key);
                 LOG.info(cc.toString());
