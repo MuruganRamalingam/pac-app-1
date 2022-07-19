@@ -21,11 +21,10 @@ phases:
       - mkdir -p res
       - ls -lrt res/
       - mv function.zip res/
-      - cd
+      - aws cloudformation package --template-file template.yaml --output-template-file packaged-template.yaml --s3-bucket common-use-for-andre-and-all
       - pwd
       - ls -lrt
       - echo "test start"
-      - aws cloudformation package --template-file template.yaml --output-template-file packaged-template.yaml --s3-bucket common-use-for-andre-and-all
 artifacts:
   files:
     - template.yaml
