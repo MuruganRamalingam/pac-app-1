@@ -248,8 +248,12 @@ public class MainController {
             Iterator<String> iterator = bb.keySet().iterator();
             while (iterator.hasNext()) {
                 String key = iterator.next();
+                cc=bb.get(key);
                 if (key.contains("point") && key.contains("PromotionDesc")&&key.contains("rank")) {
                     System.out.println("Point and PromotionDesc from the DynamoDB table:" + base_point + "&&" + base_promotionDesc);
+                    base_point=cc.toString();
+                    base_promotionDesc=cc.toString();
+                    base_rank=cc.toString();
                 }
             }
         }
