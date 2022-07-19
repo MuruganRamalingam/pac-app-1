@@ -1,0 +1,27 @@
+version: 0.2
+phases:
+  pre_build:
+    commands:
+      - awspec init
+      - mv ./*_spec.rb ./spec/
+      - ls
+      - pwd
+      - java -version
+      - gradle -v
+      # Get IAMRole
+      - curl -qL -o aws_credentials.json 169.254.170.2$AWS_CONTAINER_CREDENTIALS_RELATIVE_URI > aws_credentials.json
+      - aws configure set region $AWS_REGION
+      - aws configure set aws_access_key_id `jq -r '.AccessKeyId' aws_credentials.json`
+      - aws configure set aws_secret_access_key `jq -r '.SecretAccessKey' aws_credentials.json`
+      - aws configure set aws_session_token `jq -r '.Token' aws_credentials.json`
+  build:
+    commands:
+      - echo "test start"
+      - rake spec > ./result.txt || true
+  post_build:
+    commands:
+      - echo "Nothing to do"
+
+artifacts:
+  files:
+      - './result.txt'
