@@ -29,4 +29,4 @@ artifacts:
   files:
     - template.yaml
     - packaged-template.yaml
-discard-paths: yes
+  discard-paths: yes
