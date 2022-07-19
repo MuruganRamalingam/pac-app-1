@@ -230,7 +230,7 @@ public class MainController {
             }
         }
         String s =String.valueOf(cc);
-        return  "{\"point\":\"" + base_point + "\",\"PromotionDesc\":\"" + base_promotionDesc + "\",\"rank\":\""+base_rank}";
+        return  "{\"point\":\"" + base_point + "\",\"PromotionDesc\":\"" + base_promotionDesc + "\",\"rank\":\""+base_rank+"\"}";
     }
 
     @Get("/pe002")
