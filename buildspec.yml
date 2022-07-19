@@ -9,6 +9,7 @@ phases:
       - cp -rf * /home/application/
       - chmod 777 -R /home/application/*
       - cd /home/application/
+      - gradle build --no-daemon
       - ./build-native-image.sh
       - chmod 755 bootstrap
       - chmod 755 server
