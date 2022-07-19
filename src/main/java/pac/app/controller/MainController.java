@@ -229,7 +229,6 @@ public class MainController {
                 Log.info(base_rank);
             }
         }
-        //return "Test";
         String s =String.valueOf(cc);
         return  "{\"point\":\"" + base_point + "\",\"PromotionDesc\":\"" + base_promotionDesc + "\",\"rank\":\""+base_rank}";
     }
