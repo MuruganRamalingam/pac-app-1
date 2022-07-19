@@ -231,10 +231,10 @@ public class MainController {
     @Get("/pe002")
     public String getEvent(@Body String body) {
         LOG.info("Local Test7");
+        body = "jan:1234567ABCDEF";
         LOG.info(body);
-        body = "1234567ABCDEF";
-        String[] s1 = body.split(":");
-        String jan = Arrays.toString(s1[0]);
+        String [] s1 = body.split(":");
+        String jan = Arrays.toString(s1[1]);
         amazonDynamoDBClient = AmazonDynamoDBClientBuilder.standard()
                 .withCredentials(new DefaultAWSCredentialsProviderChain())
                 .withRegion(Regions.US_EAST_1).build();
