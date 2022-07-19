@@ -2,8 +2,7 @@ version: 0.2
 phases:
   pre_build:
     commands:
-      - awspec init
-      - mv ./*_spec.rb ./spec/
+      - more /etc/profile.d/gradle.sh
       - ls
       - pwd
       - java -version
