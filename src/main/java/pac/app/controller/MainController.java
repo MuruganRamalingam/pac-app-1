@@ -242,16 +242,18 @@ public class MainController {
         AttributeValue cc = new AttributeValue();
         String base_point = "";
         String base_promotionDesc = "";
+        String base_rank="";
         for (int j = 0; j < aa.size(); j++) {
             java.util.Map<String, AttributeValue> bb = aa.get(j);
             Iterator<String> iterator = bb.keySet().iterator();
             while (iterator.hasNext()) {
                 String key = iterator.next();
-                if (key.contains("point") && key.contains("PromotionDesc")) {
+                if (key.contains("point") && key.contains("PromotionDesc")&&key.contains("rank")) {
                     System.out.println("Point and PromotionDesc from the DynamoDB table:" + base_point + "&&" + base_promotionDesc);
                 }
             }
         }
-        return "Sucessfully";
+        //return "Sucessfully";
+        return "{\"point\":\"" + base_point + "\",\"PromotionDesc\":\"" + base_promotionDesc + "\",\"rank\":\"" + base_rank + "\"}";
     }
 }
