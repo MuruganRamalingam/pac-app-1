@@ -238,15 +238,13 @@ public class MainController {
         amazonDynamoDBClient = AmazonDynamoDBClientBuilder.standard()
                 .withCredentials(new DefaultAWSCredentialsProviderChain())
                 .withRegion(Regions.US_EAST_1).build();
-        ScanRequest scanRequest = new ScanRequest().withTableName("pac_all");
-        ScanResult scanResult = amazonDynamoDBClient.scan(scanRequest);
         HashMap<String, Condition> scanFilter = new HashMap<>();
         Condition condition = new Condition().withComparisonOperator(ComparisonOperator.EQ.toString())
                 .withAttributeValueList(new AttributeValue().withS(jan));
         scanFilter.put("jan", condition);
-        ScanRequest scanRequest = new ScanRequest("pac_all").withScanFilter(scanFilter);
-        ScanResult scanResult = amazonDynamoDBClient.scan(scanRequest);
-        List<java.util.Map<String, AttributeValue>> aa = scanResult.getItems();
+        ScanRequest scanRequest1 = new ScanRequest("pac_all").withScanFilter(scanFilter);
+        ScanResult scanResult1 = amazonDynamoDBClient.scan(scanRequest1);
+        List<java.util.Map<String, AttributeValue>> aa = scanResult1.getItems();
         LOG.info(aa.size());
         AttributeValue cc = new AttributeValue();
         String base_masterStoreCode = "";
