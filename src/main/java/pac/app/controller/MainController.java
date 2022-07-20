@@ -274,13 +274,13 @@ public class MainController {
         // return "{\"Member rank\":\"" +jan + "\",\"All Points\":\"" +all_points + "\",\"PromotionCode\":\"" + base_promotionCode + "\",\"Promotion Desc\":\""+base_promotionDesc+ "\", \"Store Code\":\""+ base_maStoreCode+"\",\"RewardCode\":\""+base_rewardCode+"\"}";
     }
     @Get("/pe003")
-    public String getAllEvent(@Body String body) {
-        LOG.info("Local Test8");
-        body = "jan:1234567ABCDEF";
-        LOG.info(body);
-        String [] s1 = body.split(":");
-        String jan = s1[1];
-        LOG.info(jan+ "::" +s1[1].length());
+    public String getAllEvent(@Body String body1) {
+        LOG.info("LocalTest8");
+        body1 = "jan:1234567ABCDEF";
+        LOG.info(body1);
+        String [] s11 = body1.split(":");
+        String jan = s11[1];
+        LOG.info(jan+ "::" +s11[1].length());
         amazonDynamoDBClient = AmazonDynamoDBClientBuilder.standard()
                 .withCredentials(new DefaultAWSCredentialsProviderChain())
                 .withRegion(Regions.US_EAST_1).build();
