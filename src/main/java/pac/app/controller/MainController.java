@@ -258,10 +258,10 @@ public class MainController {
                 String key = iterator.next();
                 cc = bb.get(key);
                 if (key.equals("jan")) {
-                    base_masterStoreCode = jan.substring(1,4);
-                    base_maStoreCode = jan.substring(5);
-                    base_promotionCode = jan.substring(6,10);
-                    base_rewardCode = jan.substring(11,13);
+                    base_masterStoreCode = cc.toString().substring(1,4);
+                    base_maStoreCode = cc.toString().substring(5);
+                    base_promotionCode = cc.toString().substring(6,10);
+                    base_rewardCode = cc.toString().substring(11,13);
                 }
                 LOG.info(key);
                 LOG.info(cc.toString());
