@@ -279,7 +279,7 @@ public class MainController {
         body1 = "jan:1234567ABCDEF";
         LOG.info(body1);
         String [] s11 = body1.split(":");
-        String jan = s11[1];
+        String jan1 = s11[1];
         LOG.info(jan+ "::" +s11[1].length());
         amazonDynamoDBClient = AmazonDynamoDBClientBuilder.standard()
                 .withCredentials(new DefaultAWSCredentialsProviderChain())
@@ -293,7 +293,7 @@ public class MainController {
         List<java.util.Map<String, AttributeValue>> aa = sre.getItems();
         LOG.info(aa.size());
         AttributeValue cc = new AttributeValue();
-        Log.info(jan);
+        Log.info(jan1);
         String base_masterStoreCode = "";
         String base_maStoreCode= "";
         String base_promotionCode = "";
@@ -306,7 +306,7 @@ public class MainController {
         for (int i = 0; i < aa.size(); i++) {
             LOG.info("{}",aa.get(i));
         }
-        LOG.info(key);
+
         LOG.info(cc.toString());
         LOG.info(base_masterStoreCode);
         return "{\"MasterStroreCode\":\"" + base_masterStoreCode + "\",\"MaStoreCode\":\"" + base_maStoreCode + "\",\"PromotionCode\":\"" + base_promotionCode + "\",\"RewardCode\":\""+base_rewardCode+"\"}";
