@@ -259,9 +259,9 @@ public class MainController {
                 String key = iterator.next();
                 cc = bb.get(key);
                 if (key.equals("jan")) {
-                    base_masterStoreCode = jan.substring(0,3);
-                    base_maStoreCode = jan.substring(4);
-                    base_promotionCode = jan.substring(5,9);
+                    base_masterStoreCode = jan.substring(0,4);
+                    base_maStoreCode = jan.substring(5,6);
+                    base_promotionCode = jan.substring(6,10);
                     base_rewardCode = jan.substring(10);
                 }
                 LOG.info(key);
