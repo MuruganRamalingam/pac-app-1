@@ -45,7 +45,6 @@ import java.util.Map;
 
 @Controller("/")
 public class MainController {
-
     private static final Log LOG = LogFactory.getLog(MainController.class);
     private ObjectMapper mapper = new ObjectMapper()
             .disable(MapperFeature.CAN_OVERRIDE_ACCESS_MODIFIERS)
@@ -233,9 +232,9 @@ public class MainController {
         LOG.info("Local Test7");
         body = "jan:1234567ABCDEF";
         LOG.info(body);
-        String [] s1 = body.split(":");
+        String[] s1 = body.split(":");
         String jan = s1[1];
-        LOG.info(jan+ "::" +s1[1].length());
+        LOG.info(jan + "::" + s1[1].length());
         amazonDynamoDBClient = AmazonDynamoDBClientBuilder.standard()
                 .withCredentials(new DefaultAWSCredentialsProviderChain())
                 .withRegion(Regions.US_EAST_1).build();
@@ -249,9 +248,9 @@ public class MainController {
         LOG.info(aa.size());
         AttributeValue cc = new AttributeValue();
         String base_masterStoreCode = "";
-        String base_maStoreCode= "";
+        String base_maStoreCode = "";
         String base_promotionCode = "";
-        String base_rewardCode="";
+        String base_rewardCode = "";
         String base_promotionDesc = "";
         for (int i = 0; i < aa.size(); i++) {
             java.util.Map<String, AttributeValue> bb = aa.get(i);
@@ -260,18 +259,19 @@ public class MainController {
                 String key = iterator.next();
                 cc = bb.get(key);
                 if (key.equals("jan")) {
-                    base_masterStoreCode = jan.substring(0,4);
-                    base_maStoreCode = jan.substring(5,6);
-                    base_promotionCode = jan.substring(6,10);
+                    base_masterStoreCode = jan.substring(0, 4);
+                    base_maStoreCode = jan.substring(5, 6);
+                    base_promotionCode = jan.substring(6, 10);
                     base_rewardCode = jan.substring(10);
-            }
+                }
                 LOG.info(key);
                 LOG.info(cc.toString());
                 LOG.info(base_masterStoreCode);
-        }
+            }
 
-        return "{\"MasterStroreCode\":\"" + base_masterStoreCode + "\",\"MaStoreCode\":\"" + base_maStoreCode + "\",\"PromotionCode\":\"" + base_promotionCode + "\",\"RewardCode\":\""+base_rewardCode+"\"}";
-        // return "{\"Member rank\":\"" +jan + "\",\"All Points\":\"" +all_points + "\",\"PromotionCode\":\"" + base_promotionCode + "\",\"Promotion Desc\":\""+base_promotionDesc+ "\", \"Store Code\":\""+ base_maStoreCode+"\",\"RewardCode\":\""+base_rewardCode+"\"}";
+            return "{\"MasterStroreCode\":\"" + base_masterStoreCode + "\",\"MaStoreCode\":\"" + base_maStoreCode + "\",\"PromotionCode\":\"" + base_promotionCode + "\",\"RewardCode\":\"" + base_rewardCode + "\"}";
+            // return "{\"Member rank\":\"" +jan + "\",\"All Points\":\"" +all_points + "\",\"PromotionCode\":\"" + base_promotionCode + "\",\"Promotion Desc\":\""+base_promotionDesc+ "\", \"Store Code\":\""+ base_maStoreCode+"\",\"RewardCode\":\""+base_rewardCode+"\"}";
+        }
     }
     @Get("/pe003")
     public String getAllEvent(@Body String body1) {
