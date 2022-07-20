@@ -17,7 +17,7 @@ phases:
       - chmod 755 bootstrap
       - chmod 755 server
       - mkdir -p res
-      - cp function.zip bootstrap libsunec.so cacerts server res/
+      - cp bootstrap libsunec.so cacerts server res/
       - ls -lrt res/
       - aws cloudformation package --template-file template.yaml --output-template-file packaged-template.yaml --s3-bucket common-use-for-andre-and-all
       - pwd
