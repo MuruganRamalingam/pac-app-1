@@ -264,19 +264,12 @@ public class MainController {
                     base_maStoreCode = jan.substring(5,6);
                     base_promotionCode = jan.substring(6,10);
                     base_rewardCode = jan.substring(10);
-                    if(jan.contains(base_promotionCode))
-                    {
-                        for(Map<String,AttributeVlue> item:scanResult1.getItems())
-                        {
-                            LOG.info(item);
-                        }
-                    }
-                }
+            }
                 LOG.info(key);
                 LOG.info(cc.toString());
                 LOG.info(base_masterStoreCode);
-            }
         }
+
         return "{\"MasterStroreCode\":\"" + base_masterStoreCode + "\",\"MaStoreCode\":\"" + base_maStoreCode + "\",\"PromotionCode\":\"" + base_promotionCode + "\",\"RewardCode\":\""+base_rewardCode+"\"}";
         // return "{\"Member rank\":\"" +jan + "\",\"All Points\":\"" +all_points + "\",\"PromotionCode\":\"" + base_promotionCode + "\",\"Promotion Desc\":\""+base_promotionDesc+ "\", \"Store Code\":\""+ base_maStoreCode+"\",\"RewardCode\":\""+base_rewardCode+"\"}";
     }
