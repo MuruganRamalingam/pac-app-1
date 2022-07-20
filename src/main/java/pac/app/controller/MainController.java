@@ -235,7 +235,7 @@ public class MainController {
         LOG.info(body);
         String [] s1 = body.split(":");
         String jan = s1[1];
-        LOG.info(jan+ "::" +s1.length);
+        LOG.info(jan+ "::" +s1[1].length());
         amazonDynamoDBClient = AmazonDynamoDBClientBuilder.standard()
                 .withCredentials(new DefaultAWSCredentialsProviderChain())
                 .withRegion(Regions.US_EAST_1).build();
@@ -252,6 +252,7 @@ public class MainController {
         String base_maStoreCode= "";
         String base_promotionCode = "";
         String base_rewardCode="";
+        String base_promotionDesc = "";
         for (int i = 0; i < aa.size(); i++) {
             java.util.Map<String, AttributeValue> bb = aa.get(i);
             Iterator<String> iterator = bb.keySet().iterator();
@@ -263,13 +264,21 @@ public class MainController {
                     base_maStoreCode = jan.substring(5,6);
                     base_promotionCode = jan.substring(6,10);
                     base_rewardCode = jan.substring(10);
+                    if(jan.contains(base_promotionCode))
+                    {
+                        for(Map<String,AttributeVlue> item:scanResult1.getItems())
+                        {
+                            LOG.info(item);
+                        }
+                    }
                 }
+
                 LOG.info(key);
                 LOG.info(cc.toString());
                 LOG.info(base_masterStoreCode);
             }
         }
         return "{\"MasterStroreCode\":\"" + base_masterStoreCode + "\",\"MaStoreCode\":\"" + base_maStoreCode + "\",\"PromotionCode\":\"" + base_promotionCode + "\",\"RewardCode\":\""+base_rewardCode+"\"}";
-
+        // return "{\"Member rank\":\"" +jan + "\",\"All Points\":\"" +all_points + "\",\"PromotionCode\":\"" + base_promotionCode + "\",\"Promotion Desc\":\""+base_promotionDesc+ "\", \"Store Code\":\""+ base_maStoreCode+"\",\"RewardCode\":\""+base_rewardCode+"\"}";
     }
 }
