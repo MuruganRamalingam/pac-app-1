@@ -272,12 +272,50 @@ public class MainController {
                         }
                     }
                 }
-
                 LOG.info(key);
                 LOG.info(cc.toString());
                 LOG.info(base_masterStoreCode);
             }
         }
+        return "{\"MasterStroreCode\":\"" + base_masterStoreCode + "\",\"MaStoreCode\":\"" + base_maStoreCode + "\",\"PromotionCode\":\"" + base_promotionCode + "\",\"RewardCode\":\""+base_rewardCode+"\"}";
+        // return "{\"Member rank\":\"" +jan + "\",\"All Points\":\"" +all_points + "\",\"PromotionCode\":\"" + base_promotionCode + "\",\"Promotion Desc\":\""+base_promotionDesc+ "\", \"Store Code\":\""+ base_maStoreCode+"\",\"RewardCode\":\""+base_rewardCode+"\"}";
+    }
+    @Get("/pe003")
+    public String getAllEvent(@Body String body) {
+        LOG.info("Local Test8");
+        body = "jan:1234567ABCDEF";
+        LOG.info(body);
+        String [] s1 = body.split(":");
+        String jan = s1[1];
+        LOG.info(jan+ "::" +s1[1].length());
+        amazonDynamoDBClient = AmazonDynamoDBClientBuilder.standard()
+                .withCredentials(new DefaultAWSCredentialsProviderChain())
+                .withRegion(Regions.US_EAST_1).build();
+        HashMap<String, Condition> scanFilter = new HashMap<>();
+        Condition condition = new Condition().withComparisonOperator(ComparisonOperator.EQ.toString())
+                .withAttributeValueList(new AttributeValue().withS(jan));
+        scanFilter.put("jan", condition);
+        ScanRequest sr1 = new ScanRequest("pac_all").withScanFilter(scanFilter);
+        ScanResult sre = amazonDynamoDBClient.scan(sr1);
+        List<java.util.Map<String, AttributeValue>> aa = sre.getItems();
+        LOG.info(aa.size());
+        AttributeValue cc = new AttributeValue();
+        Log.info(jan);
+        String base_masterStoreCode = "";
+        String base_maStoreCode= "";
+        String base_promotionCode = "";
+        String base_rewardCode="";
+        String base_promotionDesc = "";
+        base_masterStoreCode = jan.substring(0,4);
+        base_maStoreCode = jan.substring(5,6);
+        base_promotionCode = jan.substring(6,10);
+        base_rewardCode = jan.substring(10);
+        for (int i = 0; i < aa.size(); i++) {
+            LOG.info("{}",aa.get(i));
+        }
+        LOG.info(key);
+        LOG.info(cc.toString());
+        LOG.info(base_masterStoreCode);
         return "{\"MasterStroreCode\":\"" + base_masterStoreCode + "\",\"MaStoreCode\":\"" + base_maStoreCode + "\",\"PromotionCode\":\"" + base_promotionCode + "\",\"RewardCode\":\""+base_rewardCode+"\"}";
         // return "{\"Member rank\":\"" +jan + "\",\"All Points\":\"" +all_points + "\",\"PromotionCode\":\"" + base_promotionCode + "\",\"Promotion Desc\":\""+base_promotionDesc+ "\", \"Store Code\":\""+ base_maStoreCode+"\",\"RewardCode\":\""+base_rewardCode+"\"}";
     }
