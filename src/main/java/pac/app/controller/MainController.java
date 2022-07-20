@@ -293,23 +293,23 @@ public class MainController {
         List<java.util.Map<String, AttributeValue>> aa = sre.getItems();
         LOG.info(aa.size());
         AttributeValue cc = new AttributeValue();
-        Log.info(jan1);
-        String base_masterStoreCode = "";
-        String base_maStoreCode= "";
-        String base_promotionCode = "";
-        String base_rewardCode="";
-        String base_promotionDesc = "";
-        base_masterStoreCode = jan.substring(0,4);
-        base_maStoreCode = jan.substring(5,6);
-        base_promotionCode = jan.substring(6,10);
-        base_rewardCode = jan.substring(10);
+        LOG.info(jan1);
+        String base_masterStoreCode1 = "";
+        String base_maStoreCode1= "";
+        String base_promotionCode1 = "";
+        String base_rewardCode1="";
+        String base_promotionDesc1 = "";
+        base_masterStoreCode1 = jan.substring(0,4);
+        base_maStoreCode1 = jan.substring(5,6);
+        base_promotionCode1 = jan.substring(6,10);
+        base_rewardCode1 = jan.substring(10);
         for (int i = 0; i < aa.size(); i++) {
             LOG.info("{}",aa.get(i));
         }
 
         LOG.info(cc.toString());
-        LOG.info(base_masterStoreCode);
-        return "{\"MasterStroreCode\":\"" + base_masterStoreCode + "\",\"MaStoreCode\":\"" + base_maStoreCode + "\",\"PromotionCode\":\"" + base_promotionCode + "\",\"RewardCode\":\""+base_rewardCode+"\"}";
+        LOG.info(base_masterStoreCode1);
+        return "{\"MasterStroreCode\":\"" + base_masterStoreCode1 + "\",\"MaStoreCode\":\"" + base_maStoreCode1 + "\",\"PromotionCode\":\"" + base_promotionCode1 + "\",\"RewardCode\":\""+base_rewardCode1 +"\"}";
         // return "{\"Member rank\":\"" +jan + "\",\"All Points\":\"" +all_points + "\",\"PromotionCode\":\"" + base_promotionCode + "\",\"Promotion Desc\":\""+base_promotionDesc+ "\", \"Store Code\":\""+ base_maStoreCode+"\",\"RewardCode\":\""+base_rewardCode+"\"}";
     }
 }
