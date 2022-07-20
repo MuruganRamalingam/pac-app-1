@@ -5,29 +5,29 @@ env:
 phases:
   pre_build:
     commands:
-       - java -version
-       - gradle -v
-       - ls /home/test/pac-app/
-       - mkdir -p /home/application/
-       - rm -rf /home/application/*
-       - cp -rf * /home/application/
-       - chmod 777 -R /home/application/*
+      - java -version
+      - gradle -v
+      - ls -lrt
+      - ls /home/test/pac-app/
+      - chmod 777 -R *
   build:
     commands:
-       - cd /home/application/
-       - gradle build --no-daemon
-       - ./build-native-image.sh
-       - chmod 755 bootstrap
-       - chmod 755 server
-       - zip -j function.zip bootstrap libsunec.so cacerts server
-       - mkdir -p res
-       - ls -lrt res/
-       - mv function.zip res/
-       - aws cloudformation package --template-file template.yaml --output-template-file packaged-template.yaml --s3-bucket common-use-for-andre-and-all
-       - pwd
-       - ls -lrt
+      - gradle build --no-daemon
+      - ./build-native-image.sh
+      - chmod 755 bootstrap
+      - chmod 755 server
+      - mkdir -p res
+      - cp function.zip bootstrap libsunec.so cacerts server res/
+      - ls -lrt res/
+      - aws cloudformation package --template-file template.yaml --output-template-file packaged-template.yaml --s3-bucket common-use-for-andre-and-all
+      - pwd
+      - cp packaged-template.yaml res/
+      - more packaged-template.yaml
+      - ls -lrt
+      - ls -lrt res/
 artifacts:
   files:
     - template.yaml
     - packaged-template.yaml
+    - res/packaged-template.yaml
   discard-paths: yes
