@@ -234,7 +234,8 @@ public class MainController {
         body = "jan:1234567ABCDEF";
         LOG.info(body);
         String [] s1 = body.split(":");
-        String jan = s1[0].toString();
+        String jan = s1[1];
+        LOG.info(jan+ "::" +s1.length);
         amazonDynamoDBClient = AmazonDynamoDBClientBuilder.standard()
                 .withCredentials(new DefaultAWSCredentialsProviderChain())
                 .withRegion(Regions.US_EAST_1).build();
@@ -258,10 +259,10 @@ public class MainController {
                 String key = iterator.next();
                 cc = bb.get(key);
                 if (key.equals("jan")) {
-                    base_masterStoreCode = cc.toString().substring(1,4);
-                    base_maStoreCode = cc.toString().substring(5);
-                    base_promotionCode = cc.toString().substring(6,10);
-                    base_rewardCode = cc.toString().substring(11,13);
+                    base_masterStoreCode = jan.substring(0,3);
+                    base_maStoreCode = jan.substring(4);
+                    base_promotionCode = jan.substring(5,9);
+                    base_rewardCode = jan.substring(10;
                 }
                 LOG.info(key);
                 LOG.info(cc.toString());
