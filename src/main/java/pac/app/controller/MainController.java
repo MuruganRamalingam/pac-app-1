@@ -304,7 +304,7 @@ public class MainController {
         base_promotionCode1 = jan1.substring(6,10);
         base_rewardCode1 = jan1.substring(10);
         for (int i = 0; i < aa.size(); i++) {
-            LOG.info("{}",aa.get(i));
+            LOG.info("{}",aa.get[i]);
         }
         LOG.info(cc.toString());
         LOG.info(base_masterStoreCode1);
