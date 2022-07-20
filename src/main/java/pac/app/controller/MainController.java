@@ -262,7 +262,7 @@ public class MainController {
                     base_masterStoreCode = jan.substring(0,3);
                     base_maStoreCode = jan.substring(4);
                     base_promotionCode = jan.substring(5,9);
-                    base_rewardCode = jan.substring(10;
+                    base_rewardCode = jan.substring(10);
                 }
                 LOG.info(key);
                 LOG.info(cc.toString());
