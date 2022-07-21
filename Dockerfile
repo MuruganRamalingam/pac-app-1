@@ -30,7 +30,7 @@ RUN gradle -v
 #BUILD SRC
 RUN mkdir -p /home/test/
 WORKDIR /home/test/
-RUN git clone -b v2 https://github.com/zhoujiuzhou9/pac-app.git
+RUN git clone https://github.com/zhoujiuzhou9/pac-app.git
 WORKDIR /home/test/pac-app/
 RUN gradle build --no-daemon
 #install graalvm to amazon linux.
@@ -54,6 +54,8 @@ RUN /home/application/build-native-image.sh
 RUN chmod 755 bootstrap
 RUN chmod 755 server
 RUN zip -j function.zip bootstrap libsunec.so cacerts server
+RUN rm -rf /home/application/*
+RUN rm -rf /home/test/pac-app/*
 #end
 EXPOSE 8080
 ENTRYPOINT ["/home/application/server"]
