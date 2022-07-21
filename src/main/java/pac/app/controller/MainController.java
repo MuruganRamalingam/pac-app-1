@@ -250,7 +250,6 @@ public class MainController {
         String base_rewardCode = "";
         String base_promotionDesc = "";
         String base_point = "";
-        int base_point;
         for (int i = 1; i < aa.size(); i++) {
             java.util.Map<String, AttributeValue> bb = aa.get(i);
             Iterator<String> iterator = bb.keySet().iterator();
@@ -264,15 +263,14 @@ public class MainController {
                     base_rewardCode = jan.substring(10);
                 }
                 }
-                List<bb> pointList = new ArrayList<bb>();
-                pointList.stream().filter(bb->bb.jan.contains(base_promotionCode)).forEach(bb->LOG.info(pointList));
-                LOG.info("muruganram");
-                LOG.info(cc.toString());
-                LOG.info(base_masterStoreCode);
             }
+        List<bb> pointList = new ArrayList<bb>();
+        pointList.stream().filter(bb->bb.jan.contains(base_promotionCode)).forEach(bb->LOG.info(pointList));
+        LOG.info("muruganram");
+        LOG.info(cc.toString());
+        LOG.info(base_masterStoreCode);
         return "{\"MasterStroreCode\":\"" + base_masterStoreCode + "\",\"MaStoreCode\":\"" + base_maStoreCode + "\",\"PromotionCode\":\"" + base_promotionCode + "\",\"RewardCode\":\"" + base_rewardCode + "\"}";
             // return "{\"Member rank\":\"" +jan + "\",\"All Points\":\"" +all_points + "\",\"PromotionCode\":\"" + base_promotionCode + "\",\"Promotion Desc\":\""+base_promotionDesc+ "\", \"Store Code\":\""+ base_maStoreCode+"\",\"RewardCode\":\""+base_rewardCode+"\"}";
         }
-
     }
 
