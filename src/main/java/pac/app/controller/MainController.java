@@ -187,7 +187,7 @@ public class MainController {
         LOG.info("Local Test3");
         HashMap<String, Condition> scanFilter = new HashMap<>();
         Condition condition = new Condition().withComparisonOperator(ComparisonOperator.EQ.toString())
-                .withAttributeValueList(new AttributeValue().withS("1234567890AT"));
+                .withAttributeValueList(new AttributeValue().withS("1234567890ATR"));
         scanFilter.put("jan", condition);
         ScanRequest scanRequest = new ScanRequest("pac_all").withScanFilter(scanFilter);
         ScanResult scanResult = amazonDynamoDBClient.scan(scanRequest);
