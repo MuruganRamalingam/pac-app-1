@@ -184,14 +184,10 @@ public class MainController {
         amazonDynamoDBClient = AmazonDynamoDBClientBuilder.standard()
                 .withCredentials(new DefaultAWSCredentialsProviderChain())
                 .withRegion(Regions.US_EAST_1).build();
-
         LOG.info("Local Test3");
-
         HashMap<String, Condition> scanFilter = new HashMap<>();
-
         Condition condition = new Condition().withComparisonOperator(ComparisonOperator.EQ.toString())
                 .withAttributeValueList(new AttributeValue().withS("1234567890AT"));
-
         scanFilter.put("jan", condition);
         ScanRequest scanRequest = new ScanRequest("pac_all").withScanFilter(scanFilter);
         ScanResult scanResult = amazonDynamoDBClient.scan(scanRequest);
@@ -217,8 +213,8 @@ public class MainController {
                     base_point = base_point.substring(0, base_point.length() - 2);
                 }
                 if (key.equals("rank")) {
-                    base_rank = cc.toString().substring(4);
-                    base_rank = base_rank.substring(0, base_rank.length() - 2);
+                    base_rank = cc.toString();
+                    //base_rank = base_rank.substring(0, base_rank.length() - 2);
                 }
                 LOG.info(key);
                 LOG.info(cc.toString());
