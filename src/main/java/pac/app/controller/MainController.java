@@ -264,7 +264,7 @@ public class MainController {
                     base_rewardCode = jan.substring(10);
                 }
                 }
-                LOG.info(cc.toString());
+                LOG.info("MURUGAN",cc.toString());
                 LOG.info(base_masterStoreCode);
             }
         return "{\"MasterStroreCode\":\"" + base_masterStoreCode + "\",\"MaStoreCode\":\"" + base_maStoreCode + "\",\"PromotionCode\":\"" + base_promotionCode + "\",\"RewardCode\":\"" + base_rewardCode + "\"}";
