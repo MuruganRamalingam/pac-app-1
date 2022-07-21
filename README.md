@@ -1,4 +1,4 @@
-# Micronaut + GraalVM + Lambda
+# GraalVM + Lambda
 
 The `Dockerfile` contains the build to build the native image and it can be built with:
 
