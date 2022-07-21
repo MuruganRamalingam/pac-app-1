@@ -34,8 +34,4 @@ public class TestController {
         resp.setPrimes(testService.findPrimesLessThan(number));
         return resp;
     }
-    @Get("/find")
-    public String findString(){
-        return "Hello world ushaKkiran";
-    }
 }

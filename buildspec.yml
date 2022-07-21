@@ -1,0 +1,33 @@
+#pac codepipeline src build yaml
+version: 0.2
+env:
+  shell: bash
+phases:
+  pre_build:
+    commands:
+      - java -version
+      - gradle -v
+      - ls -lrt
+      - ls /home/test/pac-app/
+      - chmod 777 -R *
+  build:
+    commands:
+      - gradle build --no-daemon
+      - ./build-native-image.sh
+      - chmod 755 bootstrap
+      - chmod 755 server
+      - mkdir -p res
+      - cp bootstrap libsunec.so cacerts server res/
+      - ls -lrt res/
+      - aws cloudformation package --template-file template.yaml --output-template-file packaged-template.yaml --s3-bucket common-use-for-andre-and-all
+      - pwd
+      - cp packaged-template.yaml res/
+      - more packaged-template.yaml
+      - ls -lrt
+      - ls -lrt res/
+artifacts:
+  files:
+    - template.yaml
+    - packaged-template.yaml
+    - res/packaged-template.yaml
+  discard-paths: yes
