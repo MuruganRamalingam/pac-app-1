@@ -61,6 +61,7 @@ public class MainController {
     private static AmazonDynamoDB amazonDynamoDBClient = null;
 
     private static Table table = null;
+    private String base_point.;
 
     public MainController() {
         this.httpClient = httpClientFactory.create(HttpClientSettings.adapt(new ClientConfiguration()));
@@ -269,5 +270,30 @@ public class MainController {
         return "{\"MasterStroreCode\":\"" + base_masterStoreCode + "\",\"MaStoreCode\":\"" + base_maStoreCode + "\",\"PromotionCode\":\"" + base_promotionCode + "\",\"RewardCode\":\"" + base_rewardCode + "\"}";
             // return "{\"Member rank\":\"" +jan + "\",\"All Points\":\"" +all_points + "\",\"PromotionCode\":\"" + base_promotionCode + "\",\"Promotion Desc\":\""+base_promotionDesc+ "\", \"Store Code\":\""+ base_maStoreCode+"\",\"RewardCode\":\""+base_rewardCode+"\"}";
         }
+
+    @Get("/pe003")
+    public String getPromotion(@Body String body) {
+        LOG.info("Local Test7");
+        body = "jan:1234567ABCDEF";
+        LOG.info(body);
+        String[] s1 = body.split(":");
+        String jan = s1[1];
+        LOG.info(jan + "::" + s1[1].length());
+        amazonDynamoDBClient = AmazonDynamoDBClientBuilder.standard()
+                .withCredentials(new DefaultAWSCredentialsProviderChain())
+                .withRegion(Regions.US_EAST_1).build();
+        HashMap<String, Condition> scanFilter = new HashMap<>();
+        Condition condition = new Condition().withComparisonOperator(ComparisonOperator.EQ.toString())
+                .withAttributeValueList(new AttributeValue().withS(jan));
+        scanFilter.put("jan", condition);
+        ScanRequest scanRequest1 = new ScanRequest("pac_all").withScanFilter(scanFilter);
+        ScanResult scanResult1 = amazonDynamoDBClient.scan(scanRequest1);
+        List<java.util.Map<String, AttributeValue>> aa = scanResult1.getItems();
+        LOG.info(aa.size());
+        AttributeValue cc = new AttributeValue();
+
+
+        }
     }
+
 
