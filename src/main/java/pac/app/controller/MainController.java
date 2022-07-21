@@ -95,30 +95,11 @@ public class MainController {
         return "{\"jan\":\"" + base_janCode + "\",\"point\":\"" + base_point + "\"}";
     }
 
-
     @Get
     public String test() throws IOException {
         LOG.info("Local Test");
-
-        LOG.info("Local Test2");
-        amazonDynamoDBClient = AmazonDynamoDBClientBuilder.standard()
-                .withCredentials(new DefaultAWSCredentialsProviderChain())
-                .withRegion(Regions.AP_NORTHEAST_1).build();
-
-        dbMapper = new DynamoDBMapper(amazonDynamoDBClient);
-        LOG.info("Local Test3");
-        table = new DynamoDB(amazonDynamoDBClient).getTable("pis_val");
-        LOG.info("Local Test4");
-        Item item = table.getItem("h", "88881P111R111",
-                "s", "1");
-        LOG.info("Local Test5");
-        String base_janCode = item.get("jan").toString();
-        String base_point = item.get("po").toString();
-        LOG.info(base_point);
-        return "{\"jan\":\"" + base_janCode + "\",\"point\":\"" + base_point + "\"}";
-
+        return "test ok";
     }
-
 
     @Get("/go/{pet}")
     public String findPrimesBelow(String pet) {
@@ -136,10 +117,10 @@ public class MainController {
         HashMap<String, Condition> scanFilter = new HashMap<>();
 
         Condition condition = new Condition().withComparisonOperator(ComparisonOperator.EQ.toString())
-                .withAttributeValueList(new AttributeValue().withS("123456789012"));
+                .withAttributeValueList(new AttributeValue().withS("1234567890123"));
 
         scanFilter.put("jan", condition);
-        ScanRequest scanRequest = new ScanRequest("pis_val").withScanFilter(scanFilter);
+        ScanRequest scanRequest = new ScanRequest("pac_val").withScanFilter(scanFilter);
         ScanResult scanResult = amazonDynamoDBClient.scan(scanRequest);
         List<java.util.Map<String, AttributeValue>> aa = scanResult.getItems();
         LOG.info(aa.size());
@@ -159,5 +140,72 @@ public class MainController {
         }
 
         return "ok";
+    }
+
+    @Post("/ping")
+    @Produces(MediaType.APPLICATION_JSON)
+    public String ts(@Body String body) {
+        return  body;
+    }
+
+    @Post("/cz")
+    @Produces(MediaType.APPLICATION_JSON)
+    public String cz(@Body String body) {
+        LOG.info("Local Test1");
+        LOG.info(body);
+//        body="{'jan1':'1234567ABCDEF','rank':'1'}";
+        String[] param = body.split(",");
+        String[] param1 = param[0].split(":");
+        String jan = param1[1].replace("\"", "").replace("'", "").trim();
+        LOG.info(jan);
+
+        String rank = "";
+        //SONArray jsonArray = new JSONArray(body);
+        amazonDynamoDBClient = AmazonDynamoDBClientBuilder.standard()
+                .withCredentials(new DefaultAWSCredentialsProviderChain())
+                .withRegion(Regions.US_EAST_1).build();
+
+        LOG.info("Local Test2");
+
+        HashMap<String, Condition> scanFilter = new HashMap<>();
+
+        Condition condition = new Condition().withComparisonOperator(ComparisonOperator.EQ.toString())
+                .withAttributeValueList(new AttributeValue().withS(jan));
+
+        scanFilter.put("jan", condition);
+        ScanRequest scanRequest = new ScanRequest("pac_all").withScanFilter(scanFilter);
+        ScanResult scanResult = amazonDynamoDBClient.scan(scanRequest);
+        List<java.util.Map<String, AttributeValue>> aa = scanResult.getItems();
+        LOG.info(aa.size());
+        AttributeValue cc = new AttributeValue();
+
+        String base_point = "";
+        String base_promotionDesc = "";
+        String base_sk = "";
+        for (int i = 0; i < aa.size(); i++) {
+            java.util.Map<String, AttributeValue> bb = aa.get(i);
+            Iterator<String> iterator = bb.keySet().iterator();
+            while (iterator.hasNext()) {
+                String key = iterator.next();
+                cc = bb.get(key);
+                if (key.equals("PromotionDesc")) {
+                    base_promotionDesc = cc.toString().substring(4);
+                    base_promotionDesc = base_promotionDesc.substring(0, base_promotionDesc.length() - 2);
+                }
+                if (key.equals("point")) {
+                    base_point = cc.toString().substring(4);
+                    base_point = base_point.substring(0, base_point.length() - 2);
+                }
+                if (key.equals("sk")) {
+                    base_sk = cc.toString();
+                }
+                LOG.info(key);
+                LOG.info(cc.toString());
+                LOG.info(base_sk);
+            }
+        }
+        String s = String.valueOf(cc);
+        return "{\"point\":\"" + base_point + "\",\"PromotionDesc\":\"" + base_promotionDesc + "\"}";
+
     }
 }

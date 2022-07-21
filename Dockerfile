@@ -1,6 +1,6 @@
 # FROM amazon linux:2018.03.0.20220609.0 as graalvm
 FROM amazonlinux:2018.03.0.20220609.0 as graalvm
-# install graalvm to amazon linux.
+# install amazon cli and java to amazon linux.
 ENV LANG=en_US.UTF-8
 RUN curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
 RUN yum install -y java-1.8.0-openjdk-devel unzip wget git
