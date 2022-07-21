@@ -302,8 +302,10 @@ public class MainController {
         base_maStoreCode1 = jan1.substring(5,6);
         base_promotionCode1 = jan1.substring(6,10);
         base_rewardCode1 = jan1.substring(10);
-        for (int i = 0; i < aa.size(); i++) {
-            LOG.info("murugan");
+        ResultSetMetaData rsMetaData = rs.getMetaData();
+        int count = rsMetaData.getColumeCount();
+        for (int i = 1; i < count; i++) {
+            LOG.info(rsMetaData.getColumename(i));
         }
         LOG.info(cc.toString());
         LOG.info(base_masterStoreCode1);
