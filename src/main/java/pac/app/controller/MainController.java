@@ -264,7 +264,7 @@ public class MainController {
                     base_rewardCode = jan.substring(10);
                 }
                 }
-                LOG.info("MURUGAN",cc.toString());
+                LOG.info(cc.toString());
                 LOG.info(base_masterStoreCode);
             }
         return "{\"MasterStroreCode\":\"" + base_masterStoreCode + "\",\"MaStoreCode\":\"" + base_maStoreCode + "\",\"PromotionCode\":\"" + base_promotionCode + "\",\"RewardCode\":\"" + base_rewardCode + "\"}";
@@ -293,7 +293,7 @@ public class MainController {
         AttributeValue cc = new AttributeValue();
         for (Map<String, AttributeValue> item : scanResult1.getItems())
         {
-            printItem(item);
+            LOG.info(item);
         }
         }
     }
