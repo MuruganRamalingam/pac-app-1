@@ -61,7 +61,7 @@ public class MainController {
     private static AmazonDynamoDB amazonDynamoDBClient = null;
 
     private static Table table = null;
-    private String base_point.;
+    private String base_point;
 
     public MainController() {
         this.httpClient = httpClientFactory.create(HttpClientSettings.adapt(new ClientConfiguration()));
@@ -291,8 +291,10 @@ public class MainController {
         List<java.util.Map<String, AttributeValue>> aa = scanResult1.getItems();
         LOG.info(aa.size());
         AttributeValue cc = new AttributeValue();
-
-
+        for (Map<String, AttributeValue> item : scanResult1.getItems())
+        {
+            printItem(item);
+        }
         }
     }
 
