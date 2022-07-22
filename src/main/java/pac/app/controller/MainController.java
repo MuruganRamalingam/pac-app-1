@@ -225,6 +225,7 @@ public class MainController {
         String s = String.valueOf(cc);
         return "{\"point\":\"" + base_point + "\",\"PromotionDesc\":\"" + base_promotionDesc + "\",\"rank\":\"" + base_rank + "\"}";
     }
+
     @Get("/pe002")
     public String getEvent(@Body String body) {
         LOG.info("Local Test7");
@@ -263,13 +264,13 @@ public class MainController {
                     base_promotionCode = jan.substring(6, 10);
                     base_rewardCode = jan.substring(10);
                 }
-                }
-                LOG.info(cc.toString());
-                LOG.info(base_masterStoreCode);
             }
-        return "{\"MasterStroreCode\":\"" + base_masterStoreCode + "\",\"MaStoreCode\":\"" + base_maStoreCode + "\",\"PromotionCode\":\"" + base_promotionCode + "\",\"RewardCode\":\"" + base_rewardCode + "\"}";
-            // return "{\"Member rank\":\"" +jan + "\",\"All Points\":\"" +all_points + "\",\"PromotionCode\":\"" + base_promotionCode + "\",\"Promotion Desc\":\""+base_promotionDesc+ "\", \"Store Code\":\""+ base_maStoreCode+"\",\"RewardCode\":\""+base_rewardCode+"\"}";
+            LOG.info(cc.toString());
+            LOG.info(base_masterStoreCode);
         }
+        return "{\"MasterStroreCode\":\"" + base_masterStoreCode + "\",\"MaStoreCode\":\"" + base_maStoreCode + "\",\"PromotionCode\":\"" + base_promotionCode + "\",\"RewardCode\":\"" + base_rewardCode + "\"}";
+        // return "{\"Member rank\":\"" +jan + "\",\"All Points\":\"" +all_points + "\",\"PromotionCode\":\"" + base_promotionCode + "\",\"Promotion Desc\":\""+base_promotionDesc+ "\", \"Store Code\":\""+ base_maStoreCode+"\",\"RewardCode\":\""+base_rewardCode+"\"}";
+    }
 
     @Get("/pe003")
     public String getPromotion(@Body String body) {
@@ -293,20 +294,26 @@ public class MainController {
         AttributeValue cc = new AttributeValue();
         String base_promotionCode = "";
         base_promotionCode = jan.substring(6, 10);
-        for (Map<String, AttributeValue> item : scanResult1.getItems())
-        {
-            LOG.info(item.entrySet());
-            LOG.info(item.keySet());
-            LOG.info(item.values());
-            if(jan.contains(base_promotionCode))
-            {
-                LOG.info(item.get("point"));
+        for (int i = 1; i < aa.size(); i++) {
+            Iterator<String> iterator = bb.keySet().iterator();
+            while(iterator.hasNext()) {
+                Map<String, AttributeValue> item :scanResult1.getItems();
+                LOG.info(item.entrySet());
+                LOG.info(item.keySet());
+                LOG.info(item.values());
+                if (jan.contains(base_promotionCode)) {
+                    LOG.info(item.get("jan"));
+                    LOG.info(item.get("PromotionDesc"));
+                    LOG.info(item.get("point"));
+                    LOG.info(item.get("sdt"));
+                    LOG.info(item.get("type"));
+                } else {
+                    LOG.info("Sorry,This Promotion Code has expired!");
+                }
             }
         }
-
-
         return "Murugan";
-        }
     }
+}
 
 
