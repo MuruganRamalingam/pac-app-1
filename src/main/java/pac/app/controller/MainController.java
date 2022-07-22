@@ -295,9 +295,7 @@ public class MainController {
         String base_promotionCode = "";
         base_promotionCode = jan.substring(6, 10);
         for (int i = 1; i < aa.size(); i++) {
-            Iterator<String> iterator = bb.keySet().iterator();
-            while(iterator.hasNext()) {
-                Map<String, AttributeValue> item = scanResult1.getItems(i);
+                Map<String, AttributeValue> item : scanResult1.getItems();
                 LOG.info(item.entrySet());
                 LOG.info(item.keySet());
                 LOG.info(item.values());
@@ -311,9 +309,9 @@ public class MainController {
                     LOG.info("Sorry,This Promotion Code has expired!");
                 }
             }
-        }
         return "Murugan";
+        }
     }
-}
+
 
 
