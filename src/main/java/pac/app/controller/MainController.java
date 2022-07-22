@@ -293,13 +293,12 @@ public class MainController {
         AttributeValue cc = new AttributeValue();
         for (Map<String, AttributeValue> item : scanResult1.getItems())
         {
-            LOG.info(item);
+            LOG.info(item.entrySet());
             LOG.info(item.keySet());
             LOG.info(item.values());
         }
         return "Murugan";
         }
-
     }
 
 
