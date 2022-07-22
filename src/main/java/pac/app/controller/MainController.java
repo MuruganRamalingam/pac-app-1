@@ -295,7 +295,7 @@ public class MainController {
         String base_promotionCode = "";
         base_promotionCode = jan.substring(6, 10);
         for (int i = 1; i < aa.size(); i++) {
-                Map<String, AttributeValue> item : scanResult1.getItems();
+                Map<String, AttributeValue> item = scanResult1.getItems();
                 LOG.info(item.entrySet());
                 LOG.info(item.keySet());
                 LOG.info(item.values());
