@@ -294,6 +294,8 @@ public class MainController {
         for (Map<String, AttributeValue> item : scanResult1.getItems())
         {
             LOG.info(item);
+            LOG.info(item.keySet());
+            Log.info(item.values());
         }
         return "Murugan";
         }
