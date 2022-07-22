@@ -294,7 +294,7 @@ public class MainController {
         AttributeValue cc = new AttributeValue();
         String base_promotionCode = "";
         base_promotionCode = jan.substring(6, 10);
-        for(Map<String, AttributeValue> item = scanResult1.getItems()) {
+        for(Map<String, AttributeValue> item : scanResult1.getItems()) {
                 LOG.info(item.entrySet());
                 LOG.info(item.keySet());
                 LOG.info(item.values());
