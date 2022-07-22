@@ -297,6 +297,12 @@ public class MainController {
             LOG.info(item.keySet());
             LOG.info(item.values());
         }
+        String base_promotionCode = "";
+        base_promotionCode = jan.substring(6, 10);
+        if(jan.contains(base_promotionCode))
+        {
+            LOG.info(item.valuesOf(8));
+        }
         return "Murugan";
         }
     }
