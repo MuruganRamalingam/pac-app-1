@@ -291,18 +291,20 @@ public class MainController {
         List<java.util.Map<String, AttributeValue>> aa = scanResult1.getItems();
         LOG.info(aa.size());
         AttributeValue cc = new AttributeValue();
+        String base_promotionCode = "";
+        base_promotionCode = jan.substring(6, 10);
         for (Map<String, AttributeValue> item : scanResult1.getItems())
         {
             LOG.info(item.entrySet());
             LOG.info(item.keySet());
             LOG.info(item.values());
+            if(jan.contains(base_promotionCode))
+            {
+                LOG.info(item.get("point"));
+            }
         }
-        String base_promotionCode = "";
-        base_promotionCode = jan.substring(6, 10);
-        if(jan.contains(base_promotionCode))
-        {
-            LOG.info(item.valuesOf(8));
-        }
+
+
         return "Murugan";
         }
     }
