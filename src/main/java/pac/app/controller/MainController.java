@@ -295,7 +295,7 @@ public class MainController {
         {
             LOG.info(item);
             LOG.info(item.keySet());
-            Log.info(item.values());
+            LOG.info(item.values());
         }
         return "Murugan";
         }
