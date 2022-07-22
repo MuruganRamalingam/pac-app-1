@@ -297,7 +297,7 @@ public class MainController {
         for (int i = 1; i < aa.size(); i++) {
             Iterator<String> iterator = bb.keySet().iterator();
             while(iterator.hasNext()) {
-                Map<String, AttributeValue> item :scanResult1.getItems();
+                Map<String, AttributeValue> item :scanResult1.getItems(i);
                 LOG.info(item.entrySet());
                 LOG.info(item.keySet());
                 LOG.info(item.values());
