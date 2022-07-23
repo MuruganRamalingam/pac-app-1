@@ -226,7 +226,6 @@ public class MainController {
         LOG.info("Local Test7");
         body = "jan:1234567ABCDEF";
         LOG.info(body);
-        ggggg
         String [] s1 = body.split(":");
         String jan = s1[1];
         LOG.info(jan + "::" + s1[1].length());
