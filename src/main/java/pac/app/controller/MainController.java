@@ -288,9 +288,9 @@ public class MainController {
         LOG.info(aa.size());
         AttributeValue cc = new AttributeValue();
         String base_promotionCode = "";
-        base_promotionCode = jan.substring(6, 10);
+        base_promotionCode = jan.substring(5, 10);
         LOG.info(base_promotionCode);
-        String base_point="";
+        int base_point="";
         for(Map<String, AttributeValue> item : scanResult1.getItems()) {
                 LOG.info(item.entrySet());
                 LOG.info(item.keySet());
@@ -301,8 +301,9 @@ public class MainController {
                     LOG.info(item.get("point"));
                     LOG.info(item.get("sdt"));
                     LOG.info(item.get("type"));
-                    String x = item.get("point").toString();
-                    LOG.info(x);
+                    int x = item.get("point");
+                    base_point=base_point+x;
+                    LOG.info(base_point);
                 }
                 else {
                     LOG.info("Sorry,This Promotion Code has expired!");
