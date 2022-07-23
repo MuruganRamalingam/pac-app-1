@@ -289,7 +289,7 @@ public class MainController {
         AttributeValue cc = new AttributeValue();
         String base_promotionCode = "";
         base_promotionCode = jan.substring(6, 10);
-        Log.info(base_promotionCode);
+        LOG.info(base_promotionCode);
         String base_point="";
         for(Map<String, AttributeValue> item : scanResult1.getItems()) {
                 LOG.info(item.entrySet());
@@ -301,7 +301,7 @@ public class MainController {
                     LOG.info(item.get("point"));
                     LOG.info(item.get("sdt"));
                     LOG.info(item.get("type"));
-                    String x = item.get("point");
+                    String x = item.get("point").toString();
                     LOG.info(x);
                 }
                 else {
