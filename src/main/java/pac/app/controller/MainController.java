@@ -18,13 +18,11 @@ import com.amazonaws.http.client.ConnectionManagerFactory;
 import com.amazonaws.http.client.HttpClientFactory;
 import com.amazonaws.http.conn.ClientConnectionManagerFactory;
 import com.amazonaws.http.settings.HttpClientSettings;
-
 import com.amazonaws.regions.Regions;
 import com.amazonaws.services.dynamodbv2.AmazonDynamoDB;
 import com.amazonaws.services.dynamodbv2.AmazonDynamoDBClientBuilder;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBMapper;
 import com.amazonaws.services.dynamodbv2.document.*;
-
 import com.amazonaws.services.dynamodbv2.document.spec.QuerySpec;
 import com.amazonaws.services.dynamodbv2.document.utils.ValueMap;
 import com.fasterxml.jackson.core.JsonParser;
@@ -35,10 +33,8 @@ import io.micronaut.http.MediaType;
 import io.micronaut.http.annotation.*;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-
 import org.apache.http.client.HttpClient;
 import org.apache.http.conn.HttpClientConnectionManager;
-
 import java.io.IOException;
 import java.util.Iterator;
 import java.util.Map;
@@ -62,7 +58,6 @@ public class MainController {
 
     private static Table table = null;
     private String base_point;
-
     public MainController() {
         this.httpClient = httpClientFactory.create(HttpClientSettings.adapt(new ClientConfiguration()));
         LOG.info("init");
@@ -231,6 +226,7 @@ public class MainController {
         LOG.info("Local Test7");
         body = "jan:1234567ABCDEF";
         LOG.info(body);
+        ggggg
         String[] s1 = body.split(":");
         String jan = s1[1];
         LOG.info(jan + "::" + s1[1].length());
@@ -307,6 +303,7 @@ public class MainController {
                 }
                 else {
                     LOG.info("Sorry,This Promotion Code has expired!");
+                    System.out.println();
                 }
             }
         return "Murugan";
