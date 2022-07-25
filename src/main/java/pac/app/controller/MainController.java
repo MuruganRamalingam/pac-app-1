@@ -144,7 +144,6 @@ public class MainController {
         List<java.util.Map<String, AttributeValue>> aa = scanResult.getItems();
         LOG.info(aa.size());
         AttributeValue cc = new AttributeValue();
-
         String base_point = "";
         String base_promotionDesc = "";
         String base_sk = "";
@@ -302,6 +301,9 @@ public class MainController {
                     LOG.info(item.get("sdt"));
                     LOG.info(item.get("type"));
                     LOG.info(item.get("point"));
+                    base_point = base_point.item.get("point").substring(4);
+                    base_point=base_point.substring(0, base_point.length() - 2);
+                    LOG.info(base_point);
                 }
                 else {
                     LOG.info("Sorry,This Promotion Code has expired!");
