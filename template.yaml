@@ -8,7 +8,7 @@ Globals:
     Timeout: 60
 
 Resources:
-  PACAPP:
+  PACAPPs:
     Type: AWS::Serverless::Function # More info about Function Resource: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
     Properties:
       CodeUri: res
@@ -32,9 +32,6 @@ Outputs:
   # pacApi:
   #   Description: "API Gateway endpoint URL for Prod stage for pac function"
   #   Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/pac/"
-  PACAPP:
+  PACAPPs:
     Description: "PAC Lambda Function ARN"
-    Value: !GetAtt PACAPP.Arn
-  PACAPPIamRole:
-    Description: "Implicit IAM Role created for PAC function"
-    Value: !GetAtt PACAPP.Arn
+    Value: !GetAtt PACAPPs.Arn
