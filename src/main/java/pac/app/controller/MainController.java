@@ -36,9 +36,11 @@ import org.apache.commons.logging.LogFactory;
 import org.apache.http.client.HttpClient;
 import org.apache.http.conn.HttpClientConnectionManager;
 
+import javax.inject.Singleton;
 import java.io.IOException;
 import java.util.Iterator;
 
+@Singleton
 @Controller("/")
 public class MainController {
 
@@ -59,12 +61,18 @@ public class MainController {
 
     private static Table table = null;
 
-    public MainController() {
+    private static MainController MainController=new MainController();
+
+    private MainController() {
         this.httpClient = httpClientFactory.create(HttpClientSettings.adapt(new ClientConfiguration()));
         LOG.info("init");
         final ConnectionManagerFactory<HttpClientConnectionManager> cmFactory = new ApacheConnectionManagerFactory();
         final HttpClientConnectionManager cm = cmFactory.create(HttpClientSettings.adapt(new ClientConfiguration()));
         ClientConnectionManagerFactory.wrap(cm);
+    }
+
+    public static MainController getMainController(){
+        return  MainController;
     }
 
     @Post("/js")
