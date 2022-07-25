@@ -300,14 +300,15 @@ public class MainController {
                 LOG.info(item.keySet());
                 LOG.info(item.values());
                 if (jan.contains(base_promotionCode)) {
-                    jan_code=item.get("jan");
+                    jan_code=item.get("jan").toString();
                     LOG.info(item.get("jan"));
                     LOG.info(item.get("PromotionDesc"));
-                    String promotion_desc=item.get("PromotionDesc");
-                    LOG.info(Integer.parseInt(item.get("point")));
+                    promotion_desc=item.get("PromotionDesc").toString();
+                    point_value=Integer.parseInt(item.get("point"));
                     LOG.info(item.get("sdt"));
+                    sdt = item.get("sdt").toString();
                     LOG.info(item.get("type"));
-
+                    type=item.get("type").toString();
                     //base_point = item.get("point").substring(4);
                     //base_point= base_point.substring(4);
                     //base_point=base_point.substring(0, base_point.length() - 2);
