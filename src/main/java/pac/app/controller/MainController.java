@@ -301,7 +301,8 @@ public class MainController {
                     LOG.info(item.get("sdt"));
                     LOG.info(item.get("type"));
                     LOG.info(item.get("point"));
-                    base_point = base_point.item.get("point").substring(4);
+                    base_point = Integer.toString(item.get("point"));
+                    base_point= base_point.substring(4);
                     base_point=base_point.substring(0, base_point.length() - 2);
                     LOG.info(base_point);
                 }
