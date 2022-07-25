@@ -303,7 +303,8 @@ public class MainController {
                     LOG.info(item.get("jan"));
                     LOG.info(item.get("PromotionDesc"));
                     promotion_desc=item.get("PromotionDesc").toString();
-                    point_value=Integer.parseInt(item.get("point"));
+                    String p=item.get("point").toString();
+                    point_value = Integer.parseInt(p);
                     LOG.info(item.get("sdt"));
                     sdt = item.get("sdt").toString();
                     LOG.info(item.get("type"));
