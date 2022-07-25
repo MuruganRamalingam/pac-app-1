@@ -301,9 +301,7 @@ public class MainController {
                     LOG.info(item.get("point"));
                     LOG.info(item.get("sdt"));
                     LOG.info(item.get("type"));
-                    int x = Integer.valueOf(item.get("point"));
-                    base_point=base_point+x;
-                    LOG.info(base_point);
+                    LOG.info(item.get("point"));
                 }
                 else {
                     LOG.info("Sorry,This Promotion Code has expired!");
