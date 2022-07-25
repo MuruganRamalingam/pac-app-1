@@ -290,24 +290,32 @@ public class MainController {
         base_promotionCode = jan.substring(5, 10);
         LOG.info(base_promotionCode);
         int base_point;
+        String jan_code="";
+        String promotion_desc="";
+        String point_value="";
+        String sdt="";
+        String type="";
         for(Map<String, AttributeValue> item : scanResult1.getItems()) {
                 LOG.info(item.entrySet());
                 LOG.info(item.keySet());
                 LOG.info(item.values());
                 if (jan.contains(base_promotionCode)) {
+                    jan_code=item.get("jan");
                     LOG.info(item.get("jan"));
                     LOG.info(item.get("PromotionDesc"));
-                    LOG.info(item.get("point"));
+                    String promotion_desc=item.get("PromotionDesc");
+                    LOG.info(Integer.parseInt(item.get("point")));
                     LOG.info(item.get("sdt"));
                     LOG.info(item.get("type"));
-                    base_point = (Integer).item.get("point");
+
+                    //base_point = item.get("point").substring(4);
                     //base_point= base_point.substring(4);
                     //base_point=base_point.substring(0, base_point.length() - 2);
-                    LOG.info(base_point);
+                    //LOG.info(base_point);
                 }
                 else {
                     LOG.info("This Promotion Code has expired!");
-                    System.out.println();
+                    System.out.println("This Promotion Code has expired!");
                 }
             }
         return "Murugan";
