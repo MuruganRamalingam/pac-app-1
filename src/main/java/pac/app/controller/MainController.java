@@ -307,7 +307,7 @@ public class MainController {
                     LOG.info(base_point);
                 }
                 else {
-                    LOG.info("Sorry,This Promotion Code has expired!");
+                    LOG.info("This Promotion Code has expired!");
                     System.out.println();
                 }
             }
