@@ -289,10 +289,9 @@ public class MainController {
         String base_promotionCode = "";
         base_promotionCode = jan.substring(5, 10);
         LOG.info(base_promotionCode);
-        int base_point;
         String jan_code="";
         String promotion_desc="";
-        String point_value="";
+        int point_value;
         String sdt="";
         String type="";
         for(Map<String, AttributeValue> item : scanResult1.getItems()) {
