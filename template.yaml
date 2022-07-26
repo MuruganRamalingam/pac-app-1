@@ -1,37 +1,21 @@
 AWSTemplateFormatVersion: '2010-09-09'
-Transform: AWS::Serverless-2016-10-31
-Description: >
-  Sample src Template for SpringNative
-# More info about Globals: https://github.com/awslabs/serverless-application-model/blob/master/docs/globals.rst
-Globals:
-  Function:
-    Timeout: 60
+Description: Sample src Template for SpringNative
 
 Resources:
-  PACAPPs:
+  PACAPPD:
     Type: AWS::Serverless::Function # More info about Function Resource: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
     Properties:
-      CodeUri: res
-      FunctionName: PacApp-1
+      FunctionName: pac-pe-api-post-01
       Handler: function.handler
-      Role: arn:aws:iam::536824749084:role/pis-Lambda-DynamoDB-Role
+      Role: arn:aws:iam::114872357316:role/PAC-PE-API-POST-role-nolpgpun
       Runtime: provided.al2
+      Code:
+        S3Bucket: common-use-for-andre-and-all
+        S3Key: pac-snb
       Environment: # More info about Env Vars: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#environment-object
         Variables:
           PARAM1: VALUE
-      # Events:
-      #   pac:
-      #     Type: Api # More info about API Event Source: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#api
-      #     Properties:
-      #       Path: /pac
-      #       Method: post
 Outputs:
-  # ServerlessRestApi is an implicit API created out of Events key under Serverless::Function
-  # Find out more about other implicit resources you can reference within SAM
-  # https://github.com/awslabs/serverless-application-model/blob/master/docs/internals/generated_resources.rst#api
-  # pacApi:
-  #   Description: "API Gateway endpoint URL for Prod stage for pac function"
-  #   Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/pac/"
-  PACAPPs:
+  PACAPPD:
     Description: "PAC Lambda Function ARN"
-    Value: !GetAtt PACAPPs.Arn
+    Value: !GetAtt PACAPPD.Arn
