@@ -17,11 +17,10 @@ phases:
       - chmod 755 bootstrap
       - chmod 755 server
       - mkdir -p res
-      - cp bootstrap libsunec.so cacerts server template.yaml res/
-      - ls -lrt res/
-      - rm -rf !(res)
-      - cp res/* ./
-      - rm -rf res/
+      - cp bootstrap libsunec.so cacerts server template.yaml /home/test/pac-app/
+      - rm -rf *
+      - cp /home/test/pac-app/* ./
+      - more template.yaml
       - aws cloudformation package --template-file template.yaml --output-template-file packaged-template.yaml --s3-bucket common-use-for-andre-and-all
       - more packaged-template.yaml
       - aws cloudformation create-change-set --stack-name cz-pac-pac-snb-01 --change-set-name ChangeSetPAC --template-body file://packaged-template.yaml --capabilities CAPABILITY_IAM
