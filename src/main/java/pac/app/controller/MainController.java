@@ -306,14 +306,14 @@ public class MainController {
                     LOG.info(item.get("PromotionDesc"));
                     LOG.info(item.get("point"));
                     //String p=item.get("point").toString();
-                    point_value = Integer.parseInt(p);
-                    LOG.info(point_value);
+//                    point_value = Integer.parseInt(p);
+//                    LOG.info(point_value);
                     LOG.info(item.get("sdt"));
                     sdt = String.valueOf(item.get("sdt"));
                     LOG.info(sdt);
                     LOG.info(item.get("type"));
-                    type=String.valueOf(item.get("type"));
-                    LOG.info(type);
+//                    type=String.valueOf(item.get("type"));
+//                    LOG.info(type);
                 }
                 else {
                     LOG.info("This Promotion Code has expired!");
