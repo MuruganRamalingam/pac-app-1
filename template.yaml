@@ -8,11 +8,12 @@ Globals:
     Timeout: 60
 
 Resources:
-  PACAPP:
+  PACAPPB:
     Type: AWS::Serverless::Function # More info about Function Resource: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
     Properties:
       CodeUri: res
-      FunctionName: pac-snb-app
+      FunctionName: pac-snb-app-2
+      Role: arn:aws:iam::536824749084:role/pis-Lambda-DynamoDB-Role
       Handler: function.handler
       Runtime: provided.al2
       Environment: # More info about Env Vars: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#environment-object
@@ -31,9 +32,6 @@ Outputs:
   # pacApi:
   #   Description: "API Gateway endpoint URL for Prod stage for pac function"
   #   Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/pac/"
-  PACAPP:
+  PACAPPB:
     Description: "PAC Lambda Function ARN"
-    Value: !GetAtt PACAPP.Arn
-  PACAPPIamRole:
-    Description: "Implicit IAM Role created for PAC function"
-    Value: !GetAtt PACAPP.Arn
+    Value: !GetAtt PACAPPB.Arn
