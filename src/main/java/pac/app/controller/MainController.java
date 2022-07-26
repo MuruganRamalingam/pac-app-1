@@ -182,7 +182,7 @@ public class MainController {
         LOG.info("Local Test3");
         HashMap<String, Condition> scanFilter = new HashMap<>();
         Condition condition = new Condition().withComparisonOperator(ComparisonOperator.EQ.toString())
-                .withAttributeValueList(new AttributeValue().withS("1234567890ATR"));
+                .withAttributeValueList(new AttributeValue().withS("2345567ABC001"));
         scanFilter.put("jan", condition);
         ScanRequest scanRequest = new ScanRequest("pac_all").withScanFilter(scanFilter);
         ScanResult scanResult = amazonDynamoDBClient.scan(scanRequest);
@@ -299,12 +299,13 @@ public class MainController {
                 LOG.info(item.keySet());
                 LOG.info(item.values());
                 if (jan.contains(base_promotionCode)) {
-                    jan_code=String.valueOf(item.get("jan"));
-                    LOG.info(jan_code);
+                    //jan_code=String.valueOf(item.get("jan"));
+                    LOG.info(item.get("jan"));
                     LOG.info(item.get("PromotionDesc"));
-                    promotion_desc=String.valueOf(item.get("PromotionDesc"));
-                    LOG.info(promotion_desc);
-                    String p=item.get("point").toString();
+                   // promotion_desc=String.valueOf(item.get("PromotionDesc"));
+                    LOG.info(item.get("PromotionDesc"));
+                    LOG.info(item.get("point"));
+                    //String p=item.get("point").toString();
                     point_value = Integer.parseInt(p);
                     LOG.info(point_value);
                     LOG.info(item.get("sdt"));
