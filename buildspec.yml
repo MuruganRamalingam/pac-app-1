@@ -20,11 +20,16 @@ phases:
       - cp bootstrap libsunec.so cacerts server res/
       - ls -lrt res/
       - aws cloudformation package --template-file template.yaml --output-template-file packaged-template.yaml --s3-bucket common-use-for-andre-and-all
+      - aws cloudformation create-change-set --stack-name cz-pac-pac-snb-01 --change-set-name ChangeSetPAC --template-body file://packaged-template.yaml --capabilities CAPABILITY_IAM
       - pwd
       - cp packaged-template.yaml res/
       - more packaged-template.yaml
       - ls -lrt
       - ls -lrt res/
+  post_build:
+    commands:
+      - aws cloudformation wait change-set-create-complete --stack-name cz-pac-pac-snb-01 --change-set-name ChangeSetPAC
+      - aws cloudformation execute-change-set --change-set-name ChangeSetPAC --stack-name cz-pac-pac-snb-01
 artifacts:
   files:
     - template.yaml
