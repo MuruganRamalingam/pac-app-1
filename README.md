@@ -24,7 +24,7 @@ aws lambda create-function --function-name pac-app-test --zip-file fileb://build
 --role arn:aws:iam::536824749084:role/spring-native-PACFunctionRole-1538SC6AM9GDN
 ```
 
-The function can be invoked by sending an API Gateway Proxy request. For example:
+Thes function can be invoked by sending an API Gateway Proxy request. For example:
 
 ```bash
 aws lambda invoke --function-name pac-app --payload '{"resource": "/{proxy+}", "path": "/", "httpMethod": "GET"}' build/response.txt
