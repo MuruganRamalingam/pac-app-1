@@ -17,15 +17,15 @@ phases:
       - chmod 755 bootstrap
       - chmod 755 server
       - mkdir -p res
-      - cp bootstrap libsunec.so cacerts server res/
+      - cp bootstrap libsunec.so cacerts server template.yaml res/
       - ls -lrt res/
+      - rm -rf !(res)
+      - cp res/* ./
+      - rm -rf res/
       - aws cloudformation package --template-file template.yaml --output-template-file packaged-template.yaml --s3-bucket common-use-for-andre-and-all
+      - more packaged-template.yaml
       - aws cloudformation create-change-set --stack-name cz-pac-pac-snb-01 --change-set-name ChangeSetPAC --template-body file://packaged-template.yaml --capabilities CAPABILITY_IAM
       - pwd
-      - cp packaged-template.yaml res/
-      - more packaged-template.yaml
-      - ls -lrt
-      - ls -lrt res/
   post_build:
     commands:
       - aws cloudformation wait change-set-create-complete --stack-name cz-pac-pac-snb-01 --change-set-name ChangeSetPAC
@@ -34,5 +34,4 @@ artifacts:
   files:
     - template.yaml
     - packaged-template.yaml
-    - res/packaged-template.yaml
   discard-paths: yes
