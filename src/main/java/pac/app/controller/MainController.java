@@ -299,10 +299,10 @@ public class MainController {
                 LOG.info(item.keySet());
                 LOG.info(item.values());
                 if (jan.contains(base_promotionCode)) {
-                    jan_code=String.valueOf(item.get("jan").toString());
+                    jan_code=String.valueOf(item.get("jan"));
                     LOG.info(jan_code);
                     LOG.info(item.get("PromotionDesc"));
-                    promotion_desc=String.valueOf(item.get("PromotionDesc").toString());
+                    promotion_desc=String.valueOf(item.get("PromotionDesc");
                     LOG.info(promotion_desc);
                     String p=item.get("point").toString();
                     point_value = Integer.parseInt(p);
@@ -311,7 +311,7 @@ public class MainController {
                     sdt = String.valueOf(item.get("sdt"));
                     LOG.info(sdt);
                     LOG.info(item.get("type"));
-                    type=String.valueOf(item.get("type").toString());
+                    type=String.valueOf(item.get("type"));
                     LOG.info(type);
                 }
                 else {
