@@ -299,20 +299,16 @@ public class MainController {
                 LOG.info(item.keySet());
                 LOG.info(item.values());
                 if (jan.contains(base_promotionCode)) {
-                    jan_code=item.get("jan").toString();
+                    jan_code=String.valueOf(item.get("jan"));
                     LOG.info(item.get("jan"));
                     LOG.info(item.get("PromotionDesc"));
-                    promotion_desc=item.get("PromotionDesc").toString();
+                    promotion_desc=String.valueOf(item.get("PromotionDesc"));
                     String p=item.get("point").toString();
                     point_value = Integer.parseInt(p);
                     LOG.info(item.get("sdt"));
-                    sdt = item.get("sdt").toString();
+                    sdt = String.valueOf(item.get("sdt"));
                     LOG.info(item.get("type"));
-                    type=item.get("type").toString();
-                    //base_point = item.get("point").substring(4);
-                    //base_point= base_point.substring(4);
-                    //base_point=base_point.substring(0, base_point.length() - 2);
-                    //LOG.info(base_point);
+                    type=String.valueOf(item.get("type").toString());
                 }
                 else {
                     LOG.info("This Promotion Code has expired!");
