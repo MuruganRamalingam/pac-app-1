@@ -291,7 +291,7 @@ public class MainController {
         LOG.info(base_promotionCode);
         String jan_code="";
         String promotion_desc="";
-        int point_value;
+        int point_value=0;
         String sdt="";
         String type="";
         for(Map<String, AttributeValue> item : scanResult1.getItems()) {
