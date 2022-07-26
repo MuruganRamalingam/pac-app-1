@@ -307,7 +307,7 @@ public class MainController {
                     String p=item.get("point").toString();
                     point_value = Integer.parseInt(p);
                     LOG.info(point_value);
-                    LOG.info(item.get("sdt")); 
+                    LOG.info(item.get("sdt"));
                     sdt = String.valueOf(item.get("sdt"));
                     LOG.info(sdt);
                     LOG.info(item.get("type"));
@@ -319,7 +319,7 @@ public class MainController {
                     System.out.println("This Promotion Code has expired!");
                 }
             }
-        return "Murugan";
+        return "{\"Jan_Code\":\"" + jan_code + "\",\"Promotion_desc\":\"" + promotion_desc + "\",\"point_value\":\"" + point_value + "\",\"Promotion _Start _Date:\":\"" + sdt + "\"}";
         }
     }
 
