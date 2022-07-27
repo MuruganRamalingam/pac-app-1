@@ -9,6 +9,4 @@ Resources:
       Role: arn:aws:iam::536824749084:role/pis-Lambda-DynamoDB-Role
       Runtime: provided.al2
       Handler: function.handler
-      Code:
-        S3Bucket: common-use-for-andre-and-all
-        S3Key: pac-snb
+      Code: ./
