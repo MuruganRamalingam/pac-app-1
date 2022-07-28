@@ -191,7 +191,7 @@ public class MainController {
 
         String base_point = "";
         String base_promotionDesc = "";
-        String base_rank = "";
+       static String base_rank = "";
         for (int i = 0; i < aa.size(); i++) {
             java.util.Map<String, AttributeValue> bb = aa.get(i);
             Iterator<String> iterator = bb.keySet().iterator();
