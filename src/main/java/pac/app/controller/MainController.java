@@ -212,7 +212,7 @@ public class MainController {
                 }
                 LOG.info(key);
                 LOG.info(cc.toString());
-                Log.info(base_rank);
+                LOG.info(base_rank);
             }
         }
         String s = String.valueOf(cc);
