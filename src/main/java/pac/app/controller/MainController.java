@@ -52,7 +52,6 @@ public class MainController {
             ApacheHttpClientFactory();
 
     private HttpClient httpClient;
-    private static HttpURLConnection connection;
     private static DynamoDBMapper dbMapper = null;
     private static AmazonDynamoDB amazonDynamoDBClient = null;
 
