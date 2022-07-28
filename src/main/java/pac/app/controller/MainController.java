@@ -191,7 +191,7 @@ public class MainController {
 
         String base_point = "";
         String base_promotionDesc = "";
-       static String base_rank = "";
+        String base_rank = "";
         for (int i = 0; i < aa.size(); i++) {
             java.util.Map<String, AttributeValue> bb = aa.get(i);
             Iterator<String> iterator = bb.keySet().iterator();
@@ -207,7 +207,7 @@ public class MainController {
                     base_point = base_point.substring(0, base_point.length() - 2);
                 }
                 if (key.equals("rank")) {
-                    base_rank = cc.toString();
+                    base_rank = cc.toString().substring(4);
                     base_rank = base_rank.substring(0, base_rank.length() - 2);
                 }
                 LOG.info(key);
