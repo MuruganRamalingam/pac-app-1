@@ -52,7 +52,7 @@ public class MainController {
             ApacheHttpClientFactory();
 
     private HttpClient httpClient;
-
+    private static HttpURLConnection connection;
     private static DynamoDBMapper dbMapper = null;
     private static AmazonDynamoDB amazonDynamoDBClient = null;
 
@@ -64,7 +64,7 @@ public class MainController {
         final ConnectionManagerFactory<HttpClientConnectionManager> cmFactory = new ApacheConnectionManagerFactory();
         final HttpClientConnectionManager cm = cmFactory.create(HttpClientSettings.adapt(new ClientConfiguration()));
         ClientConnectionManagerFactory.wrap(cm);
-    }
+        }
 
     @Get("/ping")
     public String index() throws IOException {
@@ -209,11 +209,11 @@ public class MainController {
                 }
                 if (key.equals("rank")) {
                     base_rank = cc.toString();
-                    //base_rank = base_rank.substring(0, base_rank.length() - 2);
+                    base_rank = base_rank.substring(0, base_rank.length() - 2);
                 }
                 LOG.info(key);
                 LOG.info(cc.toString());
-                //Log.info(base_rank);
+                Log.info(base_rank);
             }
         }
         String s = String.valueOf(cc);
