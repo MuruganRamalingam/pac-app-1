@@ -322,7 +322,7 @@ public class MainController {
         return "{\"Jan_Code\":\"" + jan_code + "\",\"Promotion_desc\":\"" + promotion_desc + "\",\"point_value\":\"" + point_value + "\",\"Promotion _Start _Date:\":\"" + sdt + "\"}";
         }
 @POST("/insert")
-        public static  CreateItems()
+        public String CreateItems()
         {
             amazonDynamoDBClient = AmazonDynamoDBClientBuilder.standard()
                     .withCredentials(new DefaultAWSCredentialsProviderChain())
@@ -345,6 +345,7 @@ public class MainController {
             {
                 System.err.println("Create items failed.");
             }
+            return  "Data Saved Successfully";
         }
     }
 
