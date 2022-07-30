@@ -41,16 +41,15 @@ import java.util.Map;
 
 @Controller("/")
 public class MainController {
+    static DynamoDB dynamoDB = new DynamoDB(client);
     private static final Log LOG = LogFactory.getLog(MainController.class);
     private ObjectMapper mapper = new ObjectMapper()
             .disable(MapperFeature.CAN_OVERRIDE_ACCESS_MODIFIERS)
             .disable(MapperFeature.ALLOW_FINAL_FIELDS_AS_MUTATORS)
             .enable(JsonParser.Feature.ALLOW_COMMENTS)
             .disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES);
-
     private static final HttpClientFactory<ConnectionManagerAwareHttpClient> httpClientFactory = new
             ApacheHttpClientFactory();
-
     private HttpClient httpClient;
     private static DynamoDBMapper dbMapper = null;
     private static AmazonDynamoDB amazonDynamoDBClient = null;
