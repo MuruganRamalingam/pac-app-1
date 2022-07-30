@@ -321,7 +321,7 @@ public class MainController {
             }
         return "{\"Jan_Code\":\"" + jan_code + "\",\"Promotion_desc\":\"" + promotion_desc + "\",\"point_value\":\"" + point_value + "\",\"Promotion _Start _Date:\":\"" + sdt + "\"}";
         }
-@POST("/insert")
+@Post("/insert")
         public String CreateItems()
         {
             amazonDynamoDBClient = AmazonDynamoDBClientBuilder.standard()
