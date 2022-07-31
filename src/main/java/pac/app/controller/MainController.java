@@ -54,9 +54,8 @@ public class MainController {
     private HttpClient httpClient;
     private static DynamoDBMapper dbMapper = null;
     private static AmazonDynamoDB amazonDynamoDBClient = null;
-    static DynamoDB dynamoDB = new DynamoDB(amazonDynamoDBClient);
-
-    private static Table table = null;
+   // static DynamoDB dynamoDB = new DynamoDB(amazonDynamoDBClient);
+    //private static Table table = null;
     private String base_point;
     public MainController() {
         this.httpClient = httpClientFactory.create(HttpClientSettings.adapt(new ClientConfiguration()));
