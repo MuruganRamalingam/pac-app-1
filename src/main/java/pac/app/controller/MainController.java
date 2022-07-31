@@ -324,8 +324,7 @@ public class MainController {
             amazonDynamoDBClient = AmazonDynamoDBClientBuilder.standard()
                     .withCredentials(new DefaultAWSCredentialsProviderChain())
                     .withRegion(Regions.US_EAST_1).build();
-            Table table = dynamoDB(amazonDynamoDBClient).getTable("pac_all");
-
+            Table table = new DynamoDB(amazonDynamoDBClient).getTable("pac_all");
             try
             {
                 Item item =new Item().withPrimaryKey("pk","004")
