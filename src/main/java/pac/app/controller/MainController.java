@@ -266,62 +266,62 @@ public class MainController {
         // return "{\"Member rank\":\"" +jan + "\",\"All Points\":\"" +all_points + "\",\"PromotionCode\":\"" + base_promotionCode + "\",\"Promotion Desc\":\""+base_promotionDesc+ "\", \"Store Code\":\""+ base_maStoreCode+"\",\"RewardCode\":\""+base_rewardCode+"\"}";
     }
 
-    @Get("/pe003")
-    public String getPromotion(@Body String body) {
-        LOG.info("Local Test7");
-        body = "jan:1234567ABCDEF";
-        LOG.info(body);
-        String[] s1 = body.split(":");
-        String jan = s1[1];
-        LOG.info(jan + "::" + s1[1].length());
-        amazonDynamoDBClient = AmazonDynamoDBClientBuilder.standard()
-                .withCredentials(new DefaultAWSCredentialsProviderChain())
-                .withRegion(Regions.US_EAST_1).build();
-        HashMap<String, Condition> scanFilter = new HashMap<>();
-        Condition condition = new Condition().withComparisonOperator(ComparisonOperator.EQ.toString())
-                .withAttributeValueList(new AttributeValue().withS(jan));
-        scanFilter.put("jan", condition);
-        ScanRequest scanRequest1 = new ScanRequest("pac_all").withScanFilter(scanFilter);
-        ScanResult scanResult1 = amazonDynamoDBClient.scan(scanRequest1);
-        List<java.util.Map<String, AttributeValue>> aa = scanResult1.getItems();
-        LOG.info(aa.size());
-        AttributeValue cc = new AttributeValue();
-        String base_promotionCode = "";
-        base_promotionCode = jan.substring(5, 10);
-        LOG.info(base_promotionCode);
-        String jan_code="";
-        String promotion_desc="";
-        int point_value=0;
-        String sdt="";
-        String type="";
-        for(Map<String, AttributeValue> item : scanResult1.getItems()) {
-                LOG.info(item.entrySet());
-                LOG.info(item.keySet());
-                LOG.info(item.values());
-                if (jan.contains(base_promotionCode)) {
-                    //jan_code=String.valueOf(item.get("jan"));
-                    LOG.info(item.get("jan"));
-                    LOG.info(item.get("PromotionDesc"));
-                   // promotion_desc=String.valueOf(item.get("PromotionDesc"));
-                    LOG.info(item.get("PromotionDesc"));
-                    LOG.info(item.get("point"));
-                    //String p=item.get("point").toString();
-//                    point_value = Integer.parseInt(p);
-//                    LOG.info(point_value);
-                    LOG.info(item.get("sdt"));
-                    sdt = String.valueOf(item.get("sdt"));
-                    LOG.info(sdt);
-                    LOG.info(item.get("type"));
-//                    type=String.valueOf(item.get("type"));
-//                    LOG.info(type);
-                }
-                else {
-                    LOG.info("This Promotion Code has expired!");
-                    System.out.println("This Promotion Code has expired!");
-                }
-            }
-        return "{\"Jan_Code\":\"" + jan_code + "\",\"Promotion_desc\":\"" + promotion_desc + "\",\"point_value\":\"" + point_value + "\",\"Promotion _Start _Date:\":\"" + sdt + "\"}";
-        }
+//    @Get("/pe003")
+//    public String getPromotion(@Body String body) {
+//        LOG.info("Local Test7");
+//        body = "jan:1234567ABCDEF";
+//        LOG.info(body);
+//        String[] s1 = body.split(":");
+//        String jan = s1[1];
+//        LOG.info(jan + "::" + s1[1].length());
+//        amazonDynamoDBClient = AmazonDynamoDBClientBuilder.standard()
+//                .withCredentials(new DefaultAWSCredentialsProviderChain())
+//                .withRegion(Regions.US_EAST_1).build();
+//        HashMap<String, Condition> scanFilter = new HashMap<>();
+//        Condition condition = new Condition().withComparisonOperator(ComparisonOperator.EQ.toString())
+//                .withAttributeValueList(new AttributeValue().withS(jan));
+//        scanFilter.put("jan", condition);
+//        ScanRequest scanRequest1 = new ScanRequest("pac_all").withScanFilter(scanFilter);
+//        ScanResult scanResult1 = amazonDynamoDBClient.scan(scanRequest1);
+//        List<java.util.Map<String, AttributeValue>> aa = scanResult1.getItems();
+//        LOG.info(aa.size());
+//        AttributeValue cc = new AttributeValue();
+//        String base_promotionCode = "";
+//        base_promotionCode = jan.substring(5, 10);
+//        LOG.info(base_promotionCode);
+//        String jan_code="";
+//        String promotion_desc="";
+//        int point_value=0;
+//        String sdt="";
+//        String type="";
+//        for(Map<String, AttributeValue> item : scanResult1.getItems()) {
+//                LOG.info(item.entrySet());
+//                LOG.info(item.keySet());
+//                LOG.info(item.values());
+//                if (jan.contains(base_promotionCode)) {
+//                    //jan_code=String.valueOf(item.get("jan"));
+//                    LOG.info(item.get("jan"));
+//                    LOG.info(item.get("PromotionDesc"));
+//                   // promotion_desc=String.valueOf(item.get("PromotionDesc"));
+//                    LOG.info(item.get("PromotionDesc"));
+//                    LOG.info(item.get("point"));
+//                    //String p=item.get("point").toString();
+////                    point_value = Integer.parseInt(p);
+////                    LOG.info(point_value);
+//                    LOG.info(item.get("sdt"));
+//                    sdt = String.valueOf(item.get("sdt"));
+//                    LOG.info(sdt);
+//                    LOG.info(item.get("type"));
+////                    type=String.valueOf(item.get("type"));
+////                    LOG.info(type);
+//                }
+//                else {
+//                    LOG.info("This Promotion Code has expired!");
+//                    System.out.println("This Promotion Code has expired!");
+//                }
+//            }
+//        return "{\"Jan_Code\":\"" + jan_code + "\",\"Promotion_desc\":\"" + promotion_desc + "\",\"point_value\":\"" + point_value + "\",\"Promotion _Start _Date:\":\"" + sdt + "\"}";
+//        }
 //@Post("/insert")
 //        public String CreateItems()
 //        {
