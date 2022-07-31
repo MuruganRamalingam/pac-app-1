@@ -124,7 +124,6 @@ public class MainController {
         String[] param1 = param[0].split(":");
         String jan = param1[1].replace("\"", "").replace("'", "").trim();
         LOG.info(jan);
-
         String rank = "";
         //SONArray jsonArray = new JSONArray(body);
         amazonDynamoDBClient = AmazonDynamoDBClientBuilder.standard()
@@ -171,7 +170,6 @@ public class MainController {
         }
         String s = String.valueOf(cc);
         return "{\"point\":\"" + base_point + "\",\"PromotionDesc\":\"" + base_promotionDesc + "\"}";
-
     }
 
     @Get("/test")
@@ -189,7 +187,6 @@ public class MainController {
         List<java.util.Map<String, AttributeValue>> aa = scanResult.getItems();
         LOG.info(aa.size());
         AttributeValue cc = new AttributeValue();
-
         String base_point = "";
         String base_promotionDesc = "";
         String base_rank = "";
