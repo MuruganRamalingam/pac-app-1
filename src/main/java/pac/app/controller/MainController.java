@@ -294,32 +294,32 @@ public class MainController {
 //            }
 //        return "{\"Jan_Code\":\"" + jan_code + "\",\"Promotion_desc\":\"" + promotion_desc + "\",\"point_value\":\"" + point_value + "\",\"Promotion _Start _Date:\":\"" + sdt + "\"}";
 //        }
-@Post("/insert")
-        public String CreateItems()
-        {
-            amazonDynamoDBClient = AmazonDynamoDBClientBuilder.standard()
-                    .withCredentials(new DefaultAWSCredentialsProviderChain())
-                    .withRegion(Regions.US_EAST_1).build();
-            Table table = new DynamoDB(amazonDynamoDBClient).getTable("pac_all");
-            try
-            {
-                Item item =new Item().withPrimaryKey("pk","004")
-                        .withString("sk","005")
-                        .withString("edt","20221031122003")
-                        .withString("jan","1234567ABCDED")
-                        .withString("point","20")
-                        .withString("PromotionDesc","Army Day")
-                        .withNumber("rank",2)
-                        .withString("sdt","20220729011904")
-                        .withString("type","Electronics Item");
-                    table.putItem(item);
-            }
-            catch(Exception e)
-            {
-                System.err.println("Create items failed.");
-            }
-            return  "Data Saved Successfully";
-        }
+//@Post("/insert")
+//        public String CreateItems()
+//        {
+//            amazonDynamoDBClient = AmazonDynamoDBClientBuilder.standard()
+//                    .withCredentials(new DefaultAWSCredentialsProviderChain())
+//                    .withRegion(Regions.US_EAST_1).build();
+//            Table table = new DynamoDB(amazonDynamoDBClient).getTable("pac_all");
+//            try
+//            {
+//                Item item =new Item().withPrimaryKey("pk","004")
+//                        .withString("sk","005")
+//                        .withString("edt","20221031122003")
+//                        .withString("jan","1234567ABCDED")
+//                        .withString("point","20")
+//                        .withString("PromotionDesc","Army Day")
+//                        .withNumber("rank",2)
+//                        .withString("sdt","20220729011904")
+//                        .withString("type","Electronics Item");
+//                    table.putItem(item);
+//            }
+//            catch(Exception e)
+//            {
+//                System.err.println("Create items failed.");
+//            }
+//            return  "Data Saved Successfully";
+//        }
     }
 
 
