@@ -87,34 +87,7 @@ public class MainController {
         return "{\"jan\":\"" + base_janCode + "\",\"point\":\"" + base_promotionDesc + "\"}";
     }
 
-    @Get
-    public String test() throws IOException {
-        LOG.info("Local Test");
-        LOG.info("Local Test2");
-        amazonDynamoDBClient = AmazonDynamoDBClientBuilder.standard()
-                .withCredentials(new DefaultAWSCredentialsProviderChain())
-                .withRegion(Regions.US_EAST_1).build();
-
-        dbMapper = new DynamoDBMapper(amazonDynamoDBClient);
-        LOG.info("Local Test3");
-        table = new DynamoDB(amazonDynamoDBClient).getTable("pac_all");
-        LOG.info("Local Test4");
-        Item item = table.getItem("pk", "001", "sk", "0002");
-        LOG.info("Local Test5");
-        String base_rank = item.get("rank").toString();
-        String base_type = item.get("type").toString();
-        LOG.info(base_type);
-        return "{\"jan\":\"" + base_rank + "\",\"point\":\"" + base_type + "\"}";
-
-    }
-
-    @Get("/go/{pet}")
-    public String findPrimesBelow(String pet) {
-        return pet;
-    }
-
     @Post("/js")
-    @Produces(MediaType.APPLICATION_JSON)
     public String saveEvent(@Body String body) {
         LOG.info("Local Test1");
         LOG.info(body);
@@ -128,14 +101,10 @@ public class MainController {
         amazonDynamoDBClient = AmazonDynamoDBClientBuilder.standard()
                 .withCredentials(new DefaultAWSCredentialsProviderChain())
                 .withRegion(Regions.US_EAST_1).build();
-
         LOG.info("Local Test2");
-
         HashMap<String, Condition> scanFilter = new HashMap<>();
-
         Condition condition = new Condition().withComparisonOperator(ComparisonOperator.EQ.toString())
                 .withAttributeValueList(new AttributeValue().withS(jan));
-
         scanFilter.put("jan", condition);
         ScanRequest scanRequest = new ScanRequest("pac_all").withScanFilter(scanFilter);
         ScanResult scanResult = amazonDynamoDBClient.scan(scanRequest);
@@ -172,7 +141,7 @@ public class MainController {
     }
 
     @Get("/test")
-    public String ts() throws IOException {
+    public JSONObject ts() throws IOException {
         amazonDynamoDBClient = AmazonDynamoDBClientBuilder.standard()
                 .withCredentials(new DefaultAWSCredentialsProviderChain())
                 .withRegion(Regions.US_EAST_1).build();
@@ -213,54 +182,56 @@ public class MainController {
             }
         }
         String s = String.valueOf(cc);
-        return "{\"point\":\"" + base_point + "\",\"PromotionDesc\":\"" + base_promotionDesc + "\",\"rank\":\"" + base_rank + "\"}";
+        JSONObject last = new JSONObject(s);
+        //return "{\"point\":\"" + base_point + "\",\"PromotionDesc\":\"" + base_promotionDesc + "\",\"rank\":\"" + base_rank + "\"}";
+        return last;
     }
 
-//    @Get("/pe002")
-//    public String getEvent(@Body String body) {
-//        LOG.info("Local Test7");
-//        body = "jan:1234567ABCDEF";
-//        LOG.info(body);
-//        String [] s1 = body.split(":");
-//        String jan = s1[1];
-//        LOG.info(jan + "::" + s1[1].length());
-//        amazonDynamoDBClient = AmazonDynamoDBClientBuilder.standard()
-//                .withCredentials(new DefaultAWSCredentialsProviderChain())
-//                .withRegion(Regions.US_EAST_1).build();
-//        HashMap<String, Condition> scanFilter = new HashMap<>();
-//        Condition condition = new Condition().withComparisonOperator(ComparisonOperator.EQ.toString())
-//                .withAttributeValueList(new AttributeValue().withS(jan));
-//        scanFilter.put("jan", condition);
-//        ScanRequest scanRequest1 = new ScanRequest("pac_all").withScanFilter(scanFilter);
-//        ScanResult scanResult1 = amazonDynamoDBClient.scan(scanRequest1);
-//        List<java.util.Map<String, AttributeValue>> aa = scanResult1.getItems();
-//        LOG.info(aa.size());
-//        AttributeValue cc = new AttributeValue();
-//        String base_masterStoreCode = "";
-//        String base_maStoreCode = "";
-//        String base_promotionCode = "";
-//        String base_rewardCode = "";
-//        String base_promotionDesc = "";
-//        String base_point = "";
-//        for (int i = 1; i < aa.size(); i++) {
-//            java.util.Map<String, AttributeValue> bb = aa.get(i);
-//            Iterator<String> iterator = bb.keySet().iterator();
-//            while (iterator.hasNext()) {
-//                String key = iterator.next();
-//                cc = bb.get(key);
-//                if (key.equals("jan")) {
-//                    base_masterStoreCode = jan.substring(0, 4);
-//                    base_maStoreCode = jan.substring(5, 6);
-//                    base_promotionCode = jan.substring(6, 10);
-//                    base_rewardCode = jan.substring(10);
-//                }
-//            }
-//            LOG.info(cc.toString());
-//            LOG.info(base_masterStoreCode);
-//        }
-//        return "{\"MasterStroreCode\":\"" + base_masterStoreCode + "\",\"MaStoreCode\":\"" + base_maStoreCode + "\",\"PromotionCode\":\"" + base_promotionCode + "\",\"RewardCode\":\"" + base_rewardCode + "\"}";
-//        // return "{\"Member rank\":\"" +jan + "\",\"All Points\":\"" +all_points + "\",\"PromotionCode\":\"" + base_promotionCode + "\",\"Promotion Desc\":\""+base_promotionDesc+ "\", \"Store Code\":\""+ base_maStoreCode+"\",\"RewardCode\":\""+base_rewardCode+"\"}";
-//    }
+    @Get("/pe002")
+    public String getEvent(@Body String body) {
+        LOG.info("Local Test7");
+        body = "jan:1234567ABCDEF";
+        LOG.info(body);
+        String [] s1 = body.split(":");
+        String jan = s1[1];
+        LOG.info(jan + "::" + s1[1].length());
+        amazonDynamoDBClient = AmazonDynamoDBClientBuilder.standard()
+                .withCredentials(new DefaultAWSCredentialsProviderChain())
+                .withRegion(Regions.US_EAST_1).build();
+        HashMap<String, Condition> scanFilter = new HashMap<>();
+        Condition condition = new Condition().withComparisonOperator(ComparisonOperator.EQ.toString())
+                .withAttributeValueList(new AttributeValue().withS(jan));
+        scanFilter.put("jan", condition);
+        ScanRequest scanRequest1 = new ScanRequest("pac_all").withScanFilter(scanFilter);
+        ScanResult scanResult1 = amazonDynamoDBClient.scan(scanRequest1);
+        List<java.util.Map<String, AttributeValue>> aa = scanResult1.getItems();
+        LOG.info(aa.size());
+        AttributeValue cc = new AttributeValue();
+        String base_masterStoreCode = "";
+        String base_maStoreCode = "";
+        String base_promotionCode = "";
+        String base_rewardCode = "";
+        String base_promotionDesc = "";
+        String base_point = "";
+        for (int i = 1; i < aa.size(); i++) {
+            java.util.Map<String, AttributeValue> bb = aa.get(i);
+            Iterator<String> iterator = bb.keySet().iterator();
+            while (iterator.hasNext()) {
+                String key = iterator.next();
+                cc = bb.get(key);
+                if (key.equals("jan")) {
+                    base_masterStoreCode = jan.substring(0, 4);
+                    base_maStoreCode = jan.substring(5, 6);
+                    base_promotionCode = jan.substring(6, 10);
+                    base_rewardCode = jan.substring(10);
+                }
+            }
+            LOG.info(cc.toString());
+            LOG.info(base_masterStoreCode);
+        }
+        return "{\"MasterStroreCode\":\"" + base_masterStoreCode + "\",\"MaStoreCode\":\"" + base_maStoreCode + "\",\"PromotionCode\":\"" + base_promotionCode + "\",\"RewardCode\":\"" + base_rewardCode + "\"}";
+        // return "{\"Member rank\":\"" +jan + "\",\"All Points\":\"" +all_points + "\",\"PromotionCode\":\"" + base_promotionCode + "\",\"Promotion Desc\":\""+base_promotionDesc+ "\", \"Store Code\":\""+ base_maStoreCode+"\",\"RewardCode\":\""+base_rewardCode+"\"}";
+    }
 
 //    @Get("/pe003")
 //    public String getPromotion(@Body String body) {
