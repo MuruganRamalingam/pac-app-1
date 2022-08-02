@@ -148,6 +148,7 @@ public class MainController {
         HashMap<String, Condition> scanFilter = new HashMap<>();
         Condition condition = new Condition().withComparisonOperator(ComparisonOperator.EQ.toString())
                 .withAttributeValueList(new AttributeValue().withS("2345567ABC001"));
+        condition = new Condition().withComparisonOperator(ComparisonOperator.EQ.toString())
         .withAttributeValueList(new AttributeValue().withS("1"));
         scanFilter.put("jan", condition);
         scanFilter.put("rank", condition);
