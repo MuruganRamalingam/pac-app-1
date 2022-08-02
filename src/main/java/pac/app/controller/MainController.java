@@ -141,15 +141,15 @@ public class MainController {
     }
 
     @Get("/test")
-    public JSONObject ts() throws IOException {
+    public String ts() throws IOException {
         amazonDynamoDBClient = AmazonDynamoDBClientBuilder.standard()
                 .withCredentials(new DefaultAWSCredentialsProviderChain())
                 .withRegion(Regions.US_EAST_1).build();
         LOG.info("Local Test3");
         HashMap<String, Condition> scanFilter = new HashMap<>();
         Condition condition = new Condition().withComparisonOperator(ComparisonOperator.EQ.toString())
-                .withAttributeValueList(new AttributeValue().withS("2345567ABC001"));
-        scanFilter.put("jan", condition);
+                .withAttributeValueList(new AttributeValue().withS("2345567ABC001").withS("1"));
+        scanFilter.put("jan","rank", condition);
         ScanRequest scanRequest = new ScanRequest("pac_all").withScanFilter(scanFilter);
         ScanResult scanResult = amazonDynamoDBClient.scan(scanRequest);
         List<java.util.Map<String, AttributeValue>> aa = scanResult.getItems();
@@ -182,9 +182,8 @@ public class MainController {
             }
         }
         String s = String.valueOf(cc);
-        JSONObject last = new JSONObject(s);
-        //return "{\"point\":\"" + base_point + "\",\"PromotionDesc\":\"" + base_promotionDesc + "\",\"rank\":\"" + base_rank + "\"}";
-        return last;
+        return "{\"point\":\"" + base_point + "\",\"PromotionDesc\":\"" + base_promotionDesc + "\",\"rank\":\"" + base_rank + "\"}";
+       // return last;
     }
 
     @Get("/pe002")
@@ -229,9 +228,15 @@ public class MainController {
             LOG.info(cc.toString());
             LOG.info(base_masterStoreCode);
         }
+        Menbership membership = new M
+                returnmembership;
         return "{\"MasterStroreCode\":\"" + base_masterStoreCode + "\",\"MaStoreCode\":\"" + base_maStoreCode + "\",\"PromotionCode\":\"" + base_promotionCode + "\",\"RewardCode\":\"" + base_rewardCode + "\"}";
         // return "{\"Member rank\":\"" +jan + "\",\"All Points\":\"" +all_points + "\",\"PromotionCode\":\"" + base_promotionCode + "\",\"Promotion Desc\":\""+base_promotionDesc+ "\", \"Store Code\":\""+ base_maStoreCode+"\",\"RewardCode\":\""+base_rewardCode+"\"}";
     }
+
+
+
+
 
 //    @Get("/pe003")
 //    public String getPromotion(@Body String body) {
