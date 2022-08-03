@@ -181,7 +181,7 @@ public class MainController {
     }
 
 @Get("/Jsontest")
-public String getJsonformat(@Body String body)
+public String getJsonformat()
 {
     LOG.info("Local test8");
     amazonDynamoDBClient = AmazonDynamoDBClientBuilder.standard()
