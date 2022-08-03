@@ -46,6 +46,7 @@ import java.util.Map;
 @Controller("/aws")
 public class AwsController {
     private static final Log LOG = LogFactory.getLog(MainController.class);
+    private static AmazonDynamoDB amazonDynamoDBClient = null;
     @Post("/js")
     public String saveEvent(@Body String body) {
         LOG.info("Local Test1");
