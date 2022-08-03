@@ -189,7 +189,7 @@ public String getJsonformat(@Body String body)
             .withRegion(Regions.US_EAST_1).build();
     Table table = new DynamoDB(amazonDynamoDBClient).getTable("pac_all");
     GetItemSpec spec = new GetItemSpec()
-            .withPrimaryKey("pk","002"")
+            .withPrimaryKey("pk","003")
     Item item = table.getItem("jan","2345567ABC001")
             .withProjectionExpression("PromotionDesc,rank, point,type")
             .withConsistentRead(true);
