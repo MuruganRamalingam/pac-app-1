@@ -179,25 +179,7 @@ public class MainController {
         }
         return "{\"MasterStroreCode\":\"" + base_masterStoreCode + "\",\"MaStoreCode\":\"" + base_maStoreCode + "\",\"PromotionCode\":\"" + base_promotionCode + "\",\"RewardCode\":\"" + base_rewardCode + "\"}";
     }
-
-@Get("/Jsontest")
-public String getJsonformat()
-{
-    LOG.info("Local test8");
-    amazonDynamoDBClient = AmazonDynamoDBClientBuilder.standard()
-            .withCredentials(new DefaultAWSCredentialsProviderChain())
-            .withRegion(Regions.US_EAST_1).build();
-    Table table = new DynamoDB(amazonDynamoDBClient).getTable("pac_all");
-    GetItemSpec spec = new GetItemSpec()
-            .withPrimaryKey("pk","003");
-    Item item = table.getItem("jan","2345567ABC001")
-            .withProjectionExpression("PromotionDesc,rank, point,type")
-            .withConsistentRead(true);
-    Item item = table.getItem(spec);
-    System.out.println(item.toJSONPretty());
-    return item.toJSONPretty();
 }
-    }
 
 
 
