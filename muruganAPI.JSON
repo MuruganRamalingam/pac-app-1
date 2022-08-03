@@ -1,0 +1,55 @@
+{
+  "Title": "Point Inquiry",
+  "Type": "object",
+  "code": 200,
+  "item List": [
+    "body": {
+      "jancodelist": {
+        "List": [
+          {
+            "janCode": "6649509763772",
+            "Specified Information": {
+              "p0": {
+                "campaignCode": "CI9098",
+                "0": {
+                  "memberRank": "C111",
+                  "membershipCode": "23",
+                  "storeCode": "33",
+                  "pointAllMinitues": "888"
+                }
+              }
+            }
+          },
+          {
+            "janCode": "4549509763772",
+            "Specified Information": {
+              "campaignCode": "CI9098",
+              "0": {
+                "memberRank": "A223",
+                "membershipCode": "23",
+                "storeCode": "33",
+                "pointAllMinitues": "888"
+              },
+              "1": {
+                "memberRank": "A224",
+                "membershipCode": "23",
+                "storeCode": "33",
+                "pointAllMinitues": "888"
+            },
+            "Specified Information": {
+              "campaignCode": "HA9098",
+              "0": {
+                "memberRank": "A223",
+                "membershipCode": "23",
+                "storeCode": "33",
+                "pointAllMinitues": "888"
+              }
+            }
+          },
+        ]
+      }
+    }
+  ]
+      }
+
+
