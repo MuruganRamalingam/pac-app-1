@@ -1,55 +1,48 @@
 {
-  "Title": "Point Inquiry",
-  "Type": "object",
-  "code": 200,
-  "item List": [
-    "body": {
-      "jancodelist": {
-        "List": [
-          {
-            "janCode": "6649509763772",
-            "Specified Information": {
-              "p0": {
-                "campaignCode": "CI9098",
-                "0": {
-                  "memberRank": "C111",
-                  "membershipCode": "23",
-                  "storeCode": "33",
-                  "pointAllMinitues": "888"
-                }
-              }
-            }
+  "memberInfo": {
+    "memberRank": "33",
+    "allPoints": "1644",
+    "promotion": {
+      "promoCode": "RE56",
+      "promoDesc": "Army Day",
+      "itermInfo": [
+        {
+          "jan1": "CI9098",
+          "" : {
+              "promoCode": "CI9098",
+              "point": "223",
+              "storeCode": "23"
           },
-          {
-            "janCode": "4549509763772",
-            "Specified Information": {
-              "campaignCode": "CI9098",
-              "0": {
-                "memberRank": "A223",
-                "membershipCode": "23",
-                "storeCode": "33",
-                "pointAllMinitues": "888"
-              },
-              "1": {
-                "memberRank": "A224",
-                "membershipCode": "23",
-                "storeCode": "33",
-                "pointAllMinitues": "888"
-            },
-            "Specified Information": {
-              "campaignCode": "HA9098",
-              "0": {
-                "memberRank": "A223",
-                "membershipCode": "23",
-                "storeCode": "33",
-                "pointAllMinitues": "888"
-              }
-            }
+          "" : {
+              "promoCode": "CI9098",
+              "point": "224",
+              "storeCode": "25"
           },
-        ]
-      }
+          "" : {
+              "promoCode": "CI9098",
+              "point": "225",
+              "storeCode": "26"
+          }
+        },
+        {
+          "jan2": "CI9099",
+          "" : {
+            "promoCode": "CI9099",
+            "point": "323",
+            "storeCode": "23"
+          },
+          "" : {
+            "promoCode": "CI9099",
+            "point": "324",
+            "storeCode": "25"
+           },
+          "" : {
+            "promoCode": "CI9099",
+            "point": "325",
+            "storeCode": "26"
+          }
+        }
+      ]
     }
-  ]
-      }
-
-
+  }
+}
