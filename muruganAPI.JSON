@@ -1,12 +1,13 @@
 {
+  "KINO_CD": "PAC",
   "MEMBER_INFO": {
     "MEMBER_RANK": "33",
     "POINT_ALL": "1644",
-    "PROMOTION": [
+    "PROMOTION_INFO": [
       {
         "PROMOTION_CODE": "RE56",
         "PROMOTION_DESC": "Army Day",
-        "ITERM-INFO": [
+        "ITERM_INFO": [
           {"JAN_CODE":"CI9098", "POINT_PLUS": "223","STORE_CODE": "23"},
           {"JAN_CODE":"CI9099","POINT_PLUS": "224","STORE_CODE": "25"},
           {"JAN_CODE":"CI9100", "POINT_PLUS": "225","STORE_CODE": "26"}
@@ -15,7 +16,7 @@
       {
         "PROMOTION_CODE": "RE57",
         "PROMOTION_DESC": "INDEPENDENCE Day",
-        "ITERM-INFO": [
+        "ITERM_INFO": [
           {"JAN_CODE":"CI9078", "POINT_PLUS": "323","STORE_CODE": "23"},
           {"JAN_CODE":"CI9079","POINT_PLUS": "324","STORE_CODE": "25"},
           {"JAN_CODE":"CI9080", "POINT_PLUS": "325","STORE_CODE": "26"}

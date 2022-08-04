@@ -38,7 +38,7 @@ import java.util.Iterator;
 import java.util.Map;
 import javax.inject.Singleton;
 
-@Singleton
+
 @Controller("/")
 public class MainController {
     private static final Log LOG = LogFactory.getLog(MainController.class);
@@ -86,7 +86,6 @@ public class MainController {
         LOG.info(base_promotionDesc);
         return "{\"jan\":\"" + base_janCode + "\",\"point\":\"" + base_promotionDesc + "\"}";
     }
-
     @Get("/test")
     public String ts() throws IOException {
         amazonDynamoDBClient = AmazonDynamoDBClientBuilder.standard()

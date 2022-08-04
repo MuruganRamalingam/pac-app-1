@@ -42,7 +42,6 @@ import org.apache.http.conn.HttpClientConnectionManager;
 import java.io.IOException;
 import java.util.Iterator;
 import java.util.Map;
-
 @Controller("/aws")
 public class AwsController {
     private static final Log LOG = LogFactory.getLog(MainController.class);
@@ -57,7 +56,6 @@ public class AwsController {
         String jan = param1[1].replace("\"", "").replace("'", "").trim();
         LOG.info(jan);
         String rank = "";
-        //SONArray jsonArray = new JSONArray(body);
         amazonDynamoDBClient = AmazonDynamoDBClientBuilder.standard()
                 .withCredentials(new DefaultAWSCredentialsProviderChain())
                 .withRegion(Regions.US_EAST_1).build();
