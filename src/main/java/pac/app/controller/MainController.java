@@ -36,7 +36,6 @@ import org.apache.http.conn.HttpClientConnectionManager;
 import java.io.IOException;
 import java.util.Iterator;
 import java.util.Map;
-import javax.inject.Singleton;
 
 
 @Controller("/")
