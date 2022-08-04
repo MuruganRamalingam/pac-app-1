@@ -1,48 +1,26 @@
 {
-  "memberInfo": {
-    "memberRank": "33",
-    "allPoints": "1644",
-    "promotion": {
-      "promoCode": "RE56",
-      "promoDesc": "Army Day",
-      "itermInfo": [
-        {
-          "jan1": "CI9098",
-          "" : {
-              "promoCode": "CI9098",
-              "point": "223",
-              "storeCode": "23"
-          },
-          "" : {
-              "promoCode": "CI9098",
-              "point": "224",
-              "storeCode": "25"
-          },
-          "" : {
-              "promoCode": "CI9098",
-              "point": "225",
-              "storeCode": "26"
-          }
-        },
-        {
-          "jan2": "CI9099",
-          "" : {
-            "promoCode": "CI9099",
-            "point": "323",
-            "storeCode": "23"
-          },
-          "" : {
-            "promoCode": "CI9099",
-            "point": "324",
-            "storeCode": "25"
-           },
-          "" : {
-            "promoCode": "CI9099",
-            "point": "325",
-            "storeCode": "26"
-          }
-        }
-      ]
-    }
+  "MEMBER_INFO": {
+    "MEMBER_RANK": "33",
+    "POINT_ALL": "1644",
+    "PROMOTION": [
+      {
+        "PROMOTION_CODE": "RE56",
+        "PROMOTION_DESC": "Army Day",
+        "ITERM-INFO": [
+          {"JAN_CODE":"CI9098", "POINT_PLUS": "223","STORE_CODE": "23"},
+          {"JAN_CODE":"CI9099","POINT_PLUS": "224","STORE_CODE": "25"},
+          {"JAN_CODE":"CI9100", "POINT_PLUS": "225","STORE_CODE": "26"}
+        ]
+      },
+      {
+        "PROMOTION_CODE": "RE57",
+        "PROMOTION_DESC": "INDEPENDENCE Day",
+        "ITERM-INFO": [
+          {"JAN_CODE":"CI9078", "POINT_PLUS": "323","STORE_CODE": "23"},
+          {"JAN_CODE":"CI9079","POINT_PLUS": "324","STORE_CODE": "25"},
+          {"JAN_CODE":"CI9080", "POINT_PLUS": "325","STORE_CODE": "26"}
+        ]
+      }
+    ]
   }
 }
