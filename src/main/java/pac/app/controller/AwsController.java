@@ -50,7 +50,7 @@ public class AwsController {
     public String saveEvent(@Body String body) {
         LOG.info("Local Test1");
         LOG.info(body);
-//        body="{'jan1':'1234567ABCDEF','jan1':'1234567ABCDEF','jan1':'1234567ABCDEF','rank':'1'}";
+//        body="{'jan1':'1234567ABCDEF','rank':'1'}";
         String[] param = body.split(",");
         String[] param1 = param[0].split(":");
         String jan = param1[1].replace("\"", "").replace("'", "").trim();
