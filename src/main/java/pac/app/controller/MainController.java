@@ -93,11 +93,8 @@ public class MainController {
         LOG.info("Local Test3");
         HashMap<String, Condition> scanFilter = new HashMap<>();
         Condition condition = new Condition().withComparisonOperator(ComparisonOperator.EQ.toString())
-                .withAttributeValueList(new AttributeValue().withS("2345567ABC001"));
-        condition = new Condition().withComparisonOperator(ComparisonOperator.EQ.toString())
-        .withAttributeValueList(new AttributeValue().withS("1"));
-        scanFilter.put("jan", condition);
-        scanFilter.put("rank", condition);
+                .withAttributeValueList(new AttributeValue().withS("2345567ABC001").withS("1"));
+        scanFilter.put("jan","rank",condition);
         ScanRequest scanRequest = new ScanRequest("pac_all").withScanFilter(scanFilter);
         ScanResult scanResult = amazonDynamoDBClient.scan(scanRequest);
         List<java.util.Map<String, AttributeValue>> aa = scanResult.getItems();
