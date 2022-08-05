@@ -49,7 +49,6 @@ public class AwsController {
     @Post("/js")
     public String saveEvent(@Body String body) {
         LOG.info("Local Test1");
-        String s;
         LOG.info(body);
 //        body="{'jan1':'1234567ABCDEF','rank':'1'}";
         String[] param = body.split(",");
